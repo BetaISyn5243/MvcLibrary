@@ -1,0 +1,35 @@
+﻿@using MvcLibrary.Models.Entity
+@model List<TBLSTAFF>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Staffs</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Staff ID</th>
+        <th>Staff Name</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+
+    @foreach (var stf in Model)
+    {
+        <tr>
+            <td>@stf.ID</td>
+            <td>@stf.STAFF</td>
+            <td>
+
+                @Html.ActionLink("Delete", "DeleteStaff", new { id = stf.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Are You Sure?')" })
+
+            </td>
+            <td><a href="/Staff/GetStaff/@stf.ID" class="btn btn-success">Update</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="/Staff/AddStaff" class="btn btn-primary">Add New Staff</a>

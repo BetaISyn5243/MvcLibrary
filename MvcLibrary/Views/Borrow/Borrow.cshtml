@@ -1,0 +1,41 @@
+﻿@model MvcLibrary.Models.Entity.TBLACTION
+@{
+    ViewBag.Title = "Borrow";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+    <div></div>
+
+    <div class="container-fluid p-3">
+        <div class="row" style=" margin-top: 15px">
+            <div class="col-4 p-2">
+                <label>Member ID</label>
+                @Html.TextBoxFor(b => b.MEMBER, new { @class = "form-control" })
+            </div>
+            <div class="col-4 p-2">
+                <label>Book ID</label>
+                @Html.TextBoxFor(b => b.BOOK, new { @class = "form-control" })
+            </div>
+            <div class="col-4 p-2">
+                <label>Staff ID</label>
+                @Html.TextBoxFor(b => b.STAFF, new { @class = "form-control" })
+            </div>
+
+            <div class="col-6 p-2">
+                <label>Borrow Date </label>
+                @Html.TextBoxFor(b => b.BORROWDATE, new { @class = "form-control",@Value=DateTime.Now.ToShortDateString() })
+            </div>
+    
+              
+
+        </div>
+    </div>
+
+
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="add-Button">Borrow Book</button>
+    </div>
+</form>
+

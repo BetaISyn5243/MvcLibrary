@@ -1,0 +1,63 @@
+﻿@using MvcLibrary.Models.Entity
+@model List<TBLBOOK>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Books</h2>
+
+@using (Html.BeginForm("Index", "Book", FormMethod.Get))
+{
+    
+    <div style="margin-bottom:15px;margin-top:15px;" class="row px-3">
+        <div class="col-auto form-label align-self-center">
+            <b >Search Book With Name: </b>
+        </div>
+        <div class="col-4">
+            @Html.TextBox("p", null, new { @class = "form-control" })
+        </div>
+        <div class="col-1">
+            <input value="Ara" type="submit" class="form-control  btn-info" />
+        </div>
+        
+       
+    </div>
+}
+
+<table class="table table-bordered">
+    <tr>
+        <td>ID</td>
+        <td>Book Name</td>
+        <td>Book Author</td>
+        <td>Category</td>
+        <td>Publish Date</td>
+        <td>Publisher</td>
+        <td>Page</td>
+        <td>Status</td>
+        <td>Delete</td>
+        <td>Update</td>
+
+    </tr>
+    @foreach (var y in Model)
+    {
+        <tr>
+            <td>@y.ID</td>
+            <td>@y.NAME</td>
+            <td>@y.TBLAUTHOR.NAME&nbsp;@y.TBLAUTHOR.SURNAME</td>
+            <td>@y.TBLCATEGORY.NAME</td>
+            <td>@y.PUBLICATIONYEAR</td>
+            <td>@y.PRINTINGHOUSE</td>
+            <td>@y.PAGE</td>
+            <td>@y.STATUS</td>
+            <td>
+
+                @Html.ActionLink("Delete", "DeleteBook", new { id = y.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Are You Sure?')" })
+
+            </td>
+            <td><a href="/Book/GetBook/@y.ID" class="btn btn-success">Update</a></td>
+        </tr>
+    }
+</table>
+
+<a class="btn btn-primary" href="/Book/AddBook">Add New Book</a>

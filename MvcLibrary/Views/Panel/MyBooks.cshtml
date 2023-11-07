@@ -1,0 +1,24 @@
+﻿@using MvcLibrary.Models.Entity
+@model List<TBLACTION>
+@{
+    ViewBag.Title = "Kitaplarim";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+<br />
+<h2>Kitap Geçmişim</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Kitap Adı</th>
+        <th>Alış Tarihi</th>
+        <th>Üye İade Tarihi</th>
+    </tr>
+    @foreach (var k in Model)
+        {
+            <tr>
+                <td>@k.TBLKITAP.AD</td>
+                <td>@Convert.ToDateTime(k.BORROWDATE).ToString("dd/MM/yyyy")</td>
+                <td>@Convert.ToDateTime(k.RETURNDATE).ToString("dd/MM/yyyy")</td>
+            </tr>
+        }
+</table>

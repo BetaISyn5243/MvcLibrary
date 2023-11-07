@@ -1,0 +1,23 @@
+﻿@model MvcLibrary.Models.Entity.TBLSTAFF
+@{
+    ViewBag.Title = "AddStaff";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div></div>
+
+    <div class="container-fluid">
+        <div class="row" style=" margin-top: 15px">
+            <div class="col-12">
+                <label>Staff Name</label>
+                @*<input type="text" class="form-control" name="STAFF" />*@
+                @Html.TextBoxFor(x=>x.STAFF, new{ @class="form-control mb-2"})
+                @Html.ValidationMessageFor(x=>x.STAFF,"",new {@class= "form-text ",@style="color:red" })
+            </div>
+        </div>
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="add-Button">Add Staff</button>
+    </div>
+</form>

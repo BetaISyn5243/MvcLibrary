@@ -1,0 +1,34 @@
+﻿@using MvcLibrary.Models.Entity
+@model List<TBLAUTHOR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Authors</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <td>ID</td>
+        <td>NAME</td>
+        <td>SURNAME</td>
+        <td>DETAIL</td>
+    </tr>
+    @foreach(var y in Model)
+            {
+                <tr>
+                    <td>@y.ID</td>
+                    <td>@y.NAME</td>
+                    <td>@y.SURNAME</td>
+                    <td>@y.DETAIL</td>
+                    <td>
+                        
+                    @Html.ActionLink("Delete", "DeleteAuthor", new {id = y.ID},new {@class="btn btn-danger", onclick="return confirm('Are You Sure?')"})
+                    
+                    </td>
+                    <td><a href="/Author/GetAuthor/@y.ID" class="btn btn-success">Update</a></td>
+                </tr>
+            }
+</table>
+
+<a class="btn btn-primary" href="/Author/AddAuthor">Add New Author</a>

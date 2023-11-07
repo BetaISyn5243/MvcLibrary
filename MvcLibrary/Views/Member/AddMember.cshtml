@@ -1,0 +1,57 @@
+﻿@model MvcLibrary.Models.Entity.TBLMEMBER
+@{
+    ViewBag.Title = "AddMember";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div></div>
+
+    <div class="container-fluid">
+        <div class="row" style=" margin-top: 15px">
+            <div class="col-6">
+                <label>Member Name</label>
+                @Html.TextBoxFor(x => x.NAME, new { @class = "form-control mb-2" })
+                @Html.ValidationMessageFor(x => x.NAME, "", new { @class = "form-text ", @style = "color:red" })
+            </div>
+            <div class="col-6">
+                <label>Member Surname</label>
+                @Html.TextBoxFor(x => x.SURNAME, new { @class = "form-control mb-2" })
+                @Html.ValidationMessageFor(x => x.SURNAME, "", new { @class = "form-text ", @style = "color:red" })
+            </div>
+            <div class="col-4">
+                <label>Member E-Mail</label>
+                @Html.TextBoxFor(x => x.MAIL, new { @class = "form-control mb-2",@type="email" })
+                @Html.ValidationMessageFor(x => x.MAIL, "", new { @class = "form-text ", @style = "color:red" })
+            </div>
+            <div class="col-4">
+                <label>Member Username</label>
+                @Html.TextBoxFor(x => x.USERNAME, new { @class = "form-control mb-2" })
+                @Html.ValidationMessageFor(x => x.USERNAME, "", new { @class = "form-text ", @style = "color:red" })
+            </div>
+            <div class="col-4">
+                <label>Member Password</label>
+                @Html.TextBoxFor(x => x.PASSWORD, new { @class = "form-control mb-2",@type="password" })
+                @Html.ValidationMessageFor(x => x.PASSWORD, "", new { @class = "form-text ", @style = "color:red" })
+            </div>
+            <div class="col-4">
+                <label>Member Photo</label>
+                @Html.TextBoxFor(x => x.PHOTO, new { @class = "form-control mb-2" })
+                @Html.ValidationMessageFor(x => x.PHOTO, "", new { @class = "form-text ", @style = "color:red" })
+            </div>
+            <div class="col-4">
+                <label>Member Phone</label>
+                @Html.TextBoxFor(x => x.PHONE, new { @class = "form-control mb-2",@type="tel" })
+                @Html.ValidationMessageFor(x => x.PHONE, "", new { @class = "form-text ", @style = "color:red" })
+            </div>
+            <div class="col-4">
+                <label>Member School Name</label>
+                @Html.TextBoxFor(x => x.SCHOOL, new { @class = "form-control mb-2" })
+                @Html.ValidationMessageFor(x => x.SCHOOL, "", new { @class = "form-text ", @style = "color:red" })
+            </div>
+        </div>
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="add-Button">Add Member</button>
+    </div>
+</form>

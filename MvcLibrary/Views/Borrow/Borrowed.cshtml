@@ -1,0 +1,35 @@
+﻿@using MvcLibrary.Models.Entity
+@model List < TBLACTION >
+@{
+    ViewBag.Title = "Borrowed";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Borrowed list</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <td>Process ID</td>
+        <td>Book Name</td>
+        <td>Member</td>
+        <td>Staff</td>
+        <td>Borrow Date</td>
+        <td>Return Date</td>
+        <td>Process Status</td>
+
+
+    </tr>
+    @foreach (var y in Model)
+    {
+        <tr>
+            <td>@y.ID</td>
+            <td>@y.TBLBOOK.NAME</td>
+            <td>@y.TBLMEMBER.NAME</td>
+            <td>@y.TBLSTAFF.STAFF</td>
+            <td>@Convert.ToDateTime(y.BORROWDATE).ToShortDateString()</td>
+            <td>@Convert.ToDateTime(y.RETURNDATE).ToShortDateString()</td>
+            <td>@y.ISCOMPLATED</td>
+        </tr>
+    }
+</table>
+
