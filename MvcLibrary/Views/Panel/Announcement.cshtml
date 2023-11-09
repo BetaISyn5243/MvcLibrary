@@ -1,5 +1,5 @@
 ﻿@using MvcLibrary.Models.Entity;
-@*@model List<TBLDUYURULAR>*@
+@model List<TBLANNOUNCEMENT>
 @{
     ViewBag.Title = "Duyurular";
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
@@ -13,12 +13,12 @@
         <th>Tarih</th>
         <th>İçerik</th>
     </tr>
-    @*@foreach (var prs in Model)
+   @foreach (var prs in Model)
     {
         <tr>
-            <td>@prs.KATEGORI</td>
-            <td>@Convert.ToDateTime(prs.TARIH).ToString("dd/MM/yyyy")</td>
-            <td>@prs.ICERIK</td>            
+            <td>@prs.CATEGORY</td>
+            <td>@Convert.ToDateTime(prs.DATE).ToString("dd/MM/yyyy")</td>
+            <td>@prs.CONTENTS</td>            
         </tr>
-    }*@
+    }
 </table>

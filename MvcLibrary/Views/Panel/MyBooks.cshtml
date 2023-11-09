@@ -1,22 +1,22 @@
 ﻿@using MvcLibrary.Models.Entity
 @model List<TBLACTION>
 @{
-    ViewBag.Title = "Kitaplarim";
+    ViewBag.Title = "MyBooks";
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
 }
 <br />
-<h2>Kitap Geçmişim</h2>
+<h2>My Book History</h2>
 <br />
 <table class="table table-bordered">
     <tr>
-        <th>Kitap Adı</th>
-        <th>Alış Tarihi</th>
-        <th>Üye İade Tarihi</th>
+        <th>Book Name</th>
+        <th>Borrow Date</th>
+        <th>Member Return Date</th>
     </tr>
     @foreach (var k in Model)
         {
             <tr>
-                <td>@k.TBLKITAP.AD</td>
+                <td>@k.TBLBOOK.NAME</td>
                 <td>@Convert.ToDateTime(k.BORROWDATE).ToString("dd/MM/yyyy")</td>
                 <td>@Convert.ToDateTime(k.RETURNDATE).ToString("dd/MM/yyyy")</td>
             </tr>

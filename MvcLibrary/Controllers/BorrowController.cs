@@ -21,6 +21,9 @@ namespace MvcLibrary.Controllers
         [HttpGet]
         public ActionResult Borrow()
         {
+            ViewBag.memberList =  ( from x in db.TBLMEMBERS.ToList() select new SelectListItem { Text= x.NAME+" "+x.SURNAME ,Value= x.ID.ToString() }).ToList();
+            ViewBag.bookList = (from x in db.TBLBOOKs.Where(b=>b.ISDELETED==false).Where(b=>b.STATUS==true).ToList() select new SelectListItem { Text= x.NAME ,Value= x.ID.ToString() }).ToList();
+            ViewBag.staffList = ( from x in db.TBLSTAFFs.ToList() select new SelectListItem { Text= x.STAFF ,Value= x.ID.ToString() }).ToList();
             return View();
         }
         [HttpPost]

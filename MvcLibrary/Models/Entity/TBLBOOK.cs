@@ -29,6 +29,7 @@ namespace MvcLibrary.Models.Entity
         public string PAGE { get; set; }
         public Nullable<bool> STATUS { get; set; }
         public string IMAGE { get; set; }
+        public Nullable<bool> ISDELETED { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBLACTION> TBLACTIONs { get; set; }

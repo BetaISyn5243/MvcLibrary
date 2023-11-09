@@ -13,6 +13,9 @@
         <td>NAME</td>
         <td>SURNAME</td>
         <td>DETAIL</td>
+        <td>DELETE</td>
+        <td>UPDATE</td>
+        <td>AUTHOR'S BOOKS</td>
     </tr>
     @foreach(var y in Model)
             {
@@ -27,6 +30,8 @@
                     
                     </td>
                     <td><a href="/Author/GetAuthor/@y.ID" class="btn btn-success">Update</a></td>
+                    <td><a href="/Author/GetAuthorsBooks/@y.ID" class="btn btn-success" style="background-color:lightcoral">Author's books</a></td>
+                    
                 </tr>
             }
 </table>

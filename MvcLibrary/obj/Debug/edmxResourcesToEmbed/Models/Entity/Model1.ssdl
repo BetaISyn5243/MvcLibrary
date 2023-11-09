@@ -59,6 +59,7 @@
     <Property Name="PAGE" Type="varchar" MaxLength="5" />
     <Property Name="STATUS" Type="bit" />
     <Property Name="IMAGE" Type="varchar" MaxLength="250" />
+    <Property Name="ISDELETED" Type="bit" />
   </EntityType>
   <EntityType Name="TBLCATEGORY">
     <Key>
@@ -66,6 +67,7 @@
     </Key>
     <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NAME" Type="varchar" MaxLength="20" />
+    <Property Name="ISDELETED" Type="bit" />
   </EntityType>
   <EntityType Name="TBLCONTACT">
     <Key>
@@ -90,6 +92,17 @@
     <Property Name="PHOTO" Type="varchar" MaxLength="250" />
     <Property Name="PHONE" Type="varchar" MaxLength="20" />
     <Property Name="SCHOOL" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TBLMESSAGES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SENDER" Type="varchar" MaxLength="50" />
+    <Property Name="RECEIVER" Type="varchar" MaxLength="50" />
+    <Property Name="TOPIC" Type="varchar" MaxLength="50" />
+    <Property Name="CONTENTS" Type="varchar" MaxLength="500" />
+    <Property Name="DATE" Type="datetime" />
   </EntityType>
   <EntityType Name="TBLPENALTY">
     <Key>
@@ -203,6 +216,7 @@
     <EntitySet Name="TBLCATEGORY" EntityType="Self.TBLCATEGORY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TBLCONTACT" EntityType="Self.TBLCONTACT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TBLMEMBERS" EntityType="Self.TBLMEMBERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLMESSAGES" EntityType="Self.TBLMESSAGES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TBLPENALTY" EntityType="Self.TBLPENALTY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TBLSTAFF" EntityType="Self.TBLSTAFF" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_TBLACTION_TBLBOOK" Association="Self.FK_TBLACTION_TBLBOOK">

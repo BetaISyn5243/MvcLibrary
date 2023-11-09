@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MvcLibrary.Models.Entity;
 namespace MvcLibrary.Controllers
 {
     public class BookController : Controller
@@ -18,7 +17,7 @@ namespace MvcLibrary.Controllers
             {
                 books = books.Where(m => m.NAME.Contains(p));
             }
-            return View(books.ToList());
+            return View(books.Where(b=>b.ISDELETED==false).ToList());
         }
         [HttpGet]
         public ActionResult AddBook()
@@ -43,7 +42,7 @@ namespace MvcLibrary.Controllers
         public ActionResult DeleteBook(int id)
         {
             var book = db.TBLBOOKs.Find(id);
-            db.TBLBOOKs.Remove(book);
+            book.ISDELETED = true;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

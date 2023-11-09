@@ -12,7 +12,7 @@ namespace MvcLibrary.Controllers
         DBLIBRARYEntities1 db = new DBLIBRARYEntities1 ();
         public ActionResult Index()
         {
-            var values = db.TBLCATEGORies.ToList ();
+            var values = db.TBLCATEGORies.Where(c=>c.ISDELETED ==false).ToList ();
             return View(values);
         }
 
@@ -50,9 +50,9 @@ namespace MvcLibrary.Controllers
         public ActionResult DeleteCategory(int id)
         {
             var category = db.TBLCATEGORies.Find(id);
-            db.TBLCATEGORies.Remove(category);
+            category.ISDELETED = true;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
     }
-}
+}   

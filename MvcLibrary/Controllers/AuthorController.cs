@@ -28,7 +28,7 @@ namespace MvcLibrary.Controllers
         {
             db.TBLAUTHORs.Add(p);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }   
         public ActionResult DeleteAuthor(int id)
         {
@@ -42,6 +42,12 @@ namespace MvcLibrary.Controllers
 
             var author = db.TBLAUTHORs.Find(id);
             return View("GetAuthor",author);
+        }
+        public ActionResult GetAuthorsBooks(int id) {
+
+            ViewBag.y1 = db.TBLAUTHORs.Find(id).NAME+" "+ db.TBLAUTHORs.Find(id).SURNAME;
+            var values = db.TBLBOOKs.Where(b=>b.ISDELETED==false).Where(b => b.TBLAUTHOR.ID == id).ToList();
+            return View(values);
         }
         public ActionResult UpdateAuthor(TBLAUTHOR p) {
             var author = db.TBLAUTHORs.Find(p.ID);

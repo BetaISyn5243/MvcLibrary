@@ -41,6 +41,7 @@
         <th>Member School</th>
         <th>Delete</th>
         <th>Update</th>
+        <th>Book History</th>
     </tr>
 
     @foreach (var mbr in Model)
@@ -61,6 +62,7 @@
 
             </td>
             <td><a href="/Member/GetMember/@mbr.ID" class="btn btn-success">Update</a></td>
+            <td><a href="/Member/GetMemberActions/@mbr.ID" class="btn btn-success">Get Book Actions</a></td>
         </tr>
     }
 </table>

@@ -1,0 +1,27 @@
+﻿@using MvcLibrary.Models.Entity;
+@model List<TBLBOOK>
+@{
+    ViewBag.Title = "GetAuthorsBooks";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kitap Yazarı: @ViewBag.y1</h2>
+<br />
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Kitap Adı</th>
+        <th>Kategori</th>
+        <th>Yayınevi</th>
+    </tr>
+    @foreach(var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.NAME</td>
+            <td>@x.TBLCATEGORY.NAME</td>
+            <td>@x.PRINTINGHOUSE</td>
+        </tr>
+    }
+</table>
+

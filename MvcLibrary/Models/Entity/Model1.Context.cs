@@ -36,5 +36,7 @@ namespace MvcLibrary.Models.Entity
         public virtual DbSet<TBLSTAFF> TBLSTAFFs { get; set; }
         public virtual DbSet<TBLABOUT> TBLABOUTs { get; set; }
         public virtual DbSet<TBLCONTACT> TBLCONTACTs { get; set; }
+        public virtual DbSet<TBLMESSAGE> TBLMESSAGES { get; set; }
+        public virtual DbSet<TBLANNOUNCEMENT> TBLANNOUNCEMENTS { get; set; }
     }
 }

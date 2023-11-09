@@ -56,6 +56,12 @@ namespace MvcLibrary.Controllers
             var member = db.TBLMEMBERS.Find(id);
             return View("GetMember", member);
         }
+        public ActionResult GetMemberActions(int id)
+        {
+            ViewBag.u1= db.TBLMEMBERS.Find(id).NAME+" "+ db.TBLMEMBERS.Find(id).SURNAME;
+            var actions = db.TBLACTIONs.Where(a=>a.MEMBER==id).ToList();
+            return View(actions);
+        }
         public ActionResult UpdateMember(TBLMEMBER p)
         {
             var member = db.TBLMEMBERS.Find(p.ID);

@@ -34,6 +34,15 @@
           <Property Name="RETURNDATE" Type="datetime2" Precision="7" />
           <Property Name="ISCOMPLATED" Type="bit" />
         </EntityType>
+        <EntityType Name="TBLANNOUNCEMENTS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CATEGORY" Type="varchar" MaxLength="50" />
+          <Property Name="CONTENTS" Type="varchar" MaxLength="200" />
+          <Property Name="DATE" Type="datetime" />
+        </EntityType>
         <EntityType Name="TBLAUTHOR">
           <Key>
             <PropertyRef Name="ID" />
@@ -64,6 +73,7 @@
           <Property Name="PAGE" Type="varchar" MaxLength="5" />
           <Property Name="STATUS" Type="bit" />
           <Property Name="IMAGE" Type="varchar" MaxLength="250" />
+          <Property Name="ISDELETED" Type="bit" />
         </EntityType>
         <EntityType Name="TBLCATEGORY">
           <Key>
@@ -71,6 +81,7 @@
           </Key>
           <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME" Type="varchar" MaxLength="20" />
+          <Property Name="ISDELETED" Type="bit" />
         </EntityType>
         <EntityType Name="TBLCONTACT">
           <Key>
@@ -95,6 +106,17 @@
           <Property Name="PHOTO" Type="varchar" MaxLength="250" />
           <Property Name="PHONE" Type="varchar" MaxLength="20" />
           <Property Name="SCHOOL" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TBLMESSAGES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SENDER" Type="varchar" MaxLength="50" />
+          <Property Name="RECEIVER" Type="varchar" MaxLength="50" />
+          <Property Name="TOPIC" Type="varchar" MaxLength="50" />
+          <Property Name="CONTENTS" Type="varchar" MaxLength="500" />
+          <Property Name="DATE" Type="datetime" />
         </EntityType>
         <EntityType Name="TBLPENALTY">
           <Key>
@@ -202,12 +224,14 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLABOUT" EntityType="Self.TBLABOUT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLACTION" EntityType="Self.TBLACTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLANNOUNCEMENTS" EntityType="Self.TBLANNOUNCEMENTS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLAUTHOR" EntityType="Self.TBLAUTHOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLBANK" EntityType="Self.TBLBANK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLBOOK" EntityType="Self.TBLBOOK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLCATEGORY" EntityType="Self.TBLCATEGORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLCONTACT" EntityType="Self.TBLCONTACT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLMEMBERS" EntityType="Self.TBLMEMBERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLMESSAGES" EntityType="Self.TBLMESSAGES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLPENALTY" EntityType="Self.TBLPENALTY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLSTAFF" EntityType="Self.TBLSTAFF" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_TBLACTION_TBLBOOK" Association="Self.FK_TBLACTION_TBLBOOK">
@@ -303,6 +327,7 @@
           <NavigationProperty Name="TBLAUTHOR" Relationship="Self.FK_TBLBOOK_TBLAUTHOR" FromRole="TBLBOOK" ToRole="TBLAUTHOR" />
           <NavigationProperty Name="TBLCATEGORY" Relationship="Self.FK_TBLBOOK_TBLCATEGORY" FromRole="TBLBOOK" ToRole="TBLCATEGORY" />
           <Property Name="IMAGE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ISDELETED" Type="Boolean" />
         </EntityType>
         <EntityType Name="TBLCATEGORY">
           <Key>
@@ -311,6 +336,7 @@
           <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TBLBOOKs" Relationship="Self.FK_TBLBOOK_TBLCATEGORY" FromRole="TBLCATEGORY" ToRole="TBLBOOK" />
+          <Property Name="ISDELETED" Type="Boolean" />
         </EntityType>
         <EntityType Name="TBLMEMBER">
           <Key>
@@ -461,6 +487,8 @@
           </AssociationSet>
           <EntitySet Name="TBLABOUTs" EntityType="DBLIBRARYModel.TBLABOUT" />
           <EntitySet Name="TBLCONTACTs" EntityType="DBLIBRARYModel.TBLCONTACT" />
+          <EntitySet Name="TBLMESSAGES" EntityType="DBLIBRARYModel.TBLMESSAGE" />
+          <EntitySet Name="TBLANNOUNCEMENTS" EntityType="DBLIBRARYModel.TBLANNOUNCEMENT" />
         </EntityContainer>
         <Association Name="FK_TBLACTION_TBLSTAFF">
           <End Type="DBLIBRARYModel.TBLSTAFF" Role="TBLSTAFF" Multiplicity="0..1" />
@@ -490,6 +518,26 @@
           <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TOPIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MESSAGE" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBLMESSAGE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SENDER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RECEIVER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TOPIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CONTENTS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TBLANNOUNCEMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CATEGORY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CONTENTS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DATE" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -543,6 +591,7 @@
           <EntitySetMapping Name="TBLBOOKs">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLBOOK">
               <MappingFragment StoreEntitySet="TBLBOOK">
+                <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
                 <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
@@ -558,6 +607,7 @@
           <EntitySetMapping Name="TBLCATEGORies">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLCATEGORY">
               <MappingFragment StoreEntitySet="TBLCATEGORY">
+                <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
               </MappingFragment>
@@ -613,6 +663,28 @@
                 <ScalarProperty Name="TOPIC" ColumnName="TOPIC" />
                 <ScalarProperty Name="MAIL" ColumnName="MAIL" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLMESSAGES">
+            <EntityTypeMapping TypeName="DBLIBRARYModel.TBLMESSAGE">
+              <MappingFragment StoreEntitySet="TBLMESSAGES">
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="CONTENTS" ColumnName="CONTENTS" />
+                <ScalarProperty Name="TOPIC" ColumnName="TOPIC" />
+                <ScalarProperty Name="RECEIVER" ColumnName="RECEIVER" />
+                <ScalarProperty Name="SENDER" ColumnName="SENDER" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLANNOUNCEMENTS">
+            <EntityTypeMapping TypeName="DBLIBRARYModel.TBLANNOUNCEMENT">
+              <MappingFragment StoreEntitySet="TBLANNOUNCEMENTS">
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="CONTENTS" ColumnName="CONTENTS" />
+                <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -47,6 +47,7 @@
     <EntitySetMapping Name="TBLBOOKs">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLBOOK">
         <MappingFragment StoreEntitySet="TBLBOOK">
+          <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
           <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
@@ -62,6 +63,7 @@
     <EntitySetMapping Name="TBLCATEGORies">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLCATEGORY">
         <MappingFragment StoreEntitySet="TBLCATEGORY">
+          <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
         </MappingFragment>
@@ -117,6 +119,18 @@
           <ScalarProperty Name="TOPIC" ColumnName="TOPIC" />
           <ScalarProperty Name="MAIL" ColumnName="MAIL" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLMESSAGES">
+      <EntityTypeMapping TypeName="DBLIBRARYModel.TBLMESSAGE">
+        <MappingFragment StoreEntitySet="TBLMESSAGES">
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="CONTENTS" ColumnName="CONTENTS" />
+          <ScalarProperty Name="TOPIC" ColumnName="TOPIC" />
+          <ScalarProperty Name="RECEIVER" ColumnName="RECEIVER" />
+          <ScalarProperty Name="SENDER" ColumnName="SENDER" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

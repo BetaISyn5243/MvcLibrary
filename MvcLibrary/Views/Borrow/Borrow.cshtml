@@ -12,15 +12,19 @@
         <div class="row" style=" margin-top: 15px">
             <div class="col-4 p-2">
                 <label>Member ID</label>
-                @Html.TextBoxFor(b => b.MEMBER, new { @class = "form-control" })
+                @Html.DropDownListFor(b => b.TBLMEMBER.ID, (List<SelectListItem>)ViewBag.memberList, new { @class = "form-control" })
             </div>
             <div class="col-4 p-2">
                 <label>Book ID</label>
-                @Html.TextBoxFor(b => b.BOOK, new { @class = "form-control" })
+                @*@Html.TextBoxFor(b => b.BOOK, new { @class = "form-control" })*@
+                @Html.DropDownListFor(b => b.TBLBOOK.ID, (List<SelectListItem>)ViewBag.bookList, new { @class = "form-control" })
+
             </div>
             <div class="col-4 p-2">
                 <label>Staff ID</label>
-                @Html.TextBoxFor(b => b.STAFF, new { @class = "form-control" })
+                @*@Html.TextBoxFor(b => b.STAFF, new { @class = "form-control" })*@
+                @Html.DropDownListFor(b => b.TBLSTAFF.ID, (List<SelectListItem>)ViewBag.staffList, new { @class = "form-control" })
+
             </div>
 
             <div class="col-6 p-2">

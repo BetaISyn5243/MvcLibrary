@@ -60,6 +60,7 @@
     <NavigationProperty Name="TBLAUTHOR" Relationship="Self.FK_TBLBOOK_TBLAUTHOR" FromRole="TBLBOOK" ToRole="TBLAUTHOR" />
     <NavigationProperty Name="TBLCATEGORY" Relationship="Self.FK_TBLBOOK_TBLCATEGORY" FromRole="TBLBOOK" ToRole="TBLCATEGORY" />
     <Property Name="IMAGE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ISDELETED" Type="Boolean" />
   </EntityType>
   <EntityType Name="TBLCATEGORY">
     <Key>
@@ -68,6 +69,7 @@
     <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="TBLBOOKs" Relationship="Self.FK_TBLBOOK_TBLCATEGORY" FromRole="TBLCATEGORY" ToRole="TBLBOOK" />
+    <Property Name="ISDELETED" Type="Boolean" />
   </EntityType>
   <EntityType Name="TBLMEMBER">
     <Key>
@@ -218,6 +220,7 @@
     </AssociationSet>
     <EntitySet Name="TBLABOUTs" EntityType="DBLIBRARYModel.TBLABOUT" />
     <EntitySet Name="TBLCONTACTs" EntityType="DBLIBRARYModel.TBLCONTACT" />
+    <EntitySet Name="TBLMESSAGES" EntityType="DBLIBRARYModel.TBLMESSAGE" />
   </EntityContainer>
   <Association Name="FK_TBLACTION_TBLSTAFF">
     <End Type="DBLIBRARYModel.TBLSTAFF" Role="TBLSTAFF" Multiplicity="0..1" />
@@ -247,5 +250,16 @@
     <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="TOPIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="MESSAGE" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TBLMESSAGE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SENDER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RECEIVER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TOPIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CONTENTS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DATE" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>

@@ -1,0 +1,28 @@
+﻿@using MvcLibrary.Models.Entity
+@model List<TBLMESSAGE>
+@{
+    /**/
+    ViewBag.Title = "Sended";
+    Layout = "~/Views/Shared/_LayoutPanelim.cshtml";
+}
+
+<h2>Giden Mesajlar Sayfası</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Alıcı</th>
+        <th>Konu</th>
+        <th>Mesaj</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.RECEIVER</td>
+            <td>@x.TOPIC</td>
+            <td>@x.CONTENTS</td>
+            <td>@x.DATE</td>
+        </tr>
+    }
+</table>
+
