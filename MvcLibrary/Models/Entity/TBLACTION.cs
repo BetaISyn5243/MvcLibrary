@@ -28,10 +28,10 @@ namespace MvcLibrary.Models.Entity
         public Nullable<System.DateTime> RETURNDATE { get; set; }
         public Nullable<bool> ISCOMPLATED { get; set; }
     
-        public virtual TBLBOOK TBLBOOK { get; set; }
-        public virtual TBLMEMBER TBLMEMBER { get; set; }
+        public virtual TBLSTAFF TBLSTAFF { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBLPENALTY> TBLPENALTies { get; set; }
-        public virtual TBLSTAFF TBLSTAFF { get; set; }
+        public virtual TBLBOOK TBLBOOK { get; set; }
+        public virtual TBLMEMBER TBLMEMBER { get; set; }
     }
 }

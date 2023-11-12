@@ -26,17 +26,17 @@ namespace MvcLibrary.Models.Entity
         }
     
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<TBLABOUT> TBLABOUTs { get; set; }
         public virtual DbSet<TBLACTION> TBLACTIONs { get; set; }
+        public virtual DbSet<TBLANNOUNCEMENT> TBLANNOUNCEMENTS { get; set; }
         public virtual DbSet<TBLAUTHOR> TBLAUTHORs { get; set; }
         public virtual DbSet<TBLBANK> TBLBANKs { get; set; }
         public virtual DbSet<TBLBOOK> TBLBOOKs { get; set; }
         public virtual DbSet<TBLCATEGORY> TBLCATEGORies { get; set; }
+        public virtual DbSet<TBLCONTACT> TBLCONTACTs { get; set; }
         public virtual DbSet<TBLMEMBER> TBLMEMBERS { get; set; }
+        public virtual DbSet<TBLMESSAGE> TBLMESSAGES { get; set; }
         public virtual DbSet<TBLPENALTY> TBLPENALTies { get; set; }
         public virtual DbSet<TBLSTAFF> TBLSTAFFs { get; set; }
-        public virtual DbSet<TBLABOUT> TBLABOUTs { get; set; }
-        public virtual DbSet<TBLCONTACT> TBLCONTACTs { get; set; }
-        public virtual DbSet<TBLMESSAGE> TBLMESSAGES { get; set; }
-        public virtual DbSet<TBLANNOUNCEMENT> TBLANNOUNCEMENTS { get; set; }
     }
 }

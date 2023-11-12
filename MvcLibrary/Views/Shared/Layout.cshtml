@@ -13,35 +13,48 @@
     <style>
         body {
             font-family: "Lato", sans-serif;
+            background-color: #f0f7f5;
         }
 
+
         .sidebar {
-            height: 100%;
-            width: 240px;
+            margin:100px 21px 16px 16px;
+            padding: 10px;
+            width: 256px;
             position: fixed;
             z-index: 1;
             top: 0;
             left: 0;
-            background-color: #111;
+            background-color: white;
             overflow-x: hidden;
             padding-top: 16px;
+            border-radius: 20px;
         }
 
             .sidebar a {
                 padding: 6px 8px 6px 16px;
                 text-decoration: none;
                 font-size: 20px;
-                color: #f1f1f1;
+                color: black;
                 display: block;
             }
 
                 .sidebar a:hover {
                     color: #0094ff;
                 }
+               
 
+        .navbar {
+            position: fixed;
+            z-index: 5;
+        }
         .main {
-            margin-left: 240px; /* Same as the width of the sidenav */
-            padding: 0px 10px;
+            background-color: white;
+            margin-left: 292px; /* Same as the width of the sidenav */
+            padding: 20px 30px 20px 20px;
+            margin-right: 25px;
+            border-radius: 20px;
+            margin-top: 100px
         }
 
         @@media screen and (max-height: 450px) {
@@ -56,32 +69,47 @@
     </style>
 </head>
 <body>
-
-    <div class="sidebar">
-        <a href="#home"><i class="glyphicon glyphicon-home"></i> &nbsp; Home</a>
-        <a href="/Category/Index"><i class="glyphicon glyphicon-list"></i> &nbsp; Categories</a>
-        <a href="/Book/Index"><i class="glyphicon glyphicon-book"></i> &nbsp; Books</a>
-        <a href="/Author/Index"><i class="glyphicon glyphicon-pencil"></i> &nbsp; Authors</a>
-        <a href="/Member/Index"><i class="glyphicon glyphicon-user"></i> &nbsp; Users</a>
-        <a href="/Staff/Index"><i class="glyphicon glyphicon-tower"></i> &nbsp; Staff</a>
-        <a href="/Borrow/Borrowed"><i class="glyphicon glyphicon-circle-arrow-right"></i> &nbsp; Barrowed Books</a>
-        <a href="/Borrow/Borrow"><i class="glyphicon glyphicon-circle-arrow-right"></i> &nbsp; Barrow Books</a>
-        <a href="/Borrow/Index"><i class="glyphicon glyphicon-circle-arrow-left"></i> &nbsp; Return Books</a>
-        <a href="/Statistic/Index"><i class="glyphicon glyphicon-sort"></i> &nbsp; Statistics</a>
-        <a href="#Bank"><i class="glyphicon glyphicon-euro"></i> &nbsp; Bank</a>
-        <a href="#Process"><i class="glyphicon glyphicon-dashboard"></i> &nbsp; Process</a>
-        <a href="/Statistic/Gallery"><i class="glyphicon glyphicon-picture"></i> &nbsp; Galleries</a>
-        <a href="/Statistic/Weather"><i class="glyphicon glyphicon-gift"></i> &nbsp; Showcase</a>
-        <a href="#Settings"><i class="glyphicon glyphicon-cog"></i> &nbsp; Settings</a>
-        <a href="#Support"><i class="glyphicon glyphicon-phone"></i> &nbsp; Support</a>
-        <a href="/Panel/LogOut"><i class="glyphicon glyphicon-exclamation-sign"></i> &nbsp; Exit</a>
-
-
-    </div>
-
-    <div class="main">
+    <!-- Just an image -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light shadow p-3 mb-5 bg-body rounded">
+        <div class="container-fluid px-5 d-flex justify-content-between">
+            <a class="navbar-brand" href="#">MY Library</a>
+            <div class="d-flex align-items-center">
+                <img src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp" alt="Avatar" width="40" height="40" class="rounded-circle me-2">
+                <div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav pull-right">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Erkan Çelik
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                    <li><a class="dropdown-item" href="#">Exit</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+        <div class="sidebar shadow p-3 mb-5 bg-body rounded">
+            <a href="/Home/Index"><i class="glyphicon glyphicon-home"></i> &nbsp; Home</a>
+            <a href="/Category/Index"><i class="glyphicon glyphicon-list"></i> &nbsp; Categories</a>
+            <a href="/Book/Index"><i class="glyphicon glyphicon-book"></i> &nbsp; Books</a>
+            <a href="/Author/Index"><i class="glyphicon glyphicon-pencil"></i> &nbsp; Authors</a>
+            <a href="/Member/Index"><i class="glyphicon glyphicon-user"></i> &nbsp; Users</a>
+            <a href="/Staff/Index"><i class="glyphicon glyphicon-tower"></i> &nbsp; Staff</a>
+            <a href="/Borrow/Borrowed"><i class="glyphicon glyphicon-circle-arrow-right"></i> &nbsp; Barrowed Books</a>
+            <a href="/Borrow/Borrow"><i class="glyphicon glyphicon-circle-arrow-right"></i> &nbsp; Barrow Books</a>
+            <a href="/Borrow/Index"><i class="glyphicon glyphicon-circle-arrow-left"></i> &nbsp; Return Books</a>
+            <a href="#Process"><i class="glyphicon glyphicon-dashboard"></i> &nbsp; Process</a>
+        </div>
+    <div class="main shadow mb-5 rounded">
         @RenderBody()
     </div>
-
 </body>
 </html>

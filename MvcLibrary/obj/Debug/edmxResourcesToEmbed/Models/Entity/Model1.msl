@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DBLIBRARYModelStoreContainer" CdmEntityContainer="DBLIBRARYEntities1">
+  <EntityContainerMapping StorageEntityContainer="DBKUTUPHANEModelStoreContainer" CdmEntityContainer="DBLIBRARYEntities1">
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="DBLIBRARYModel.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
@@ -12,16 +12,34 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TBLABOUTs">
+      <EntityTypeMapping TypeName="DBLIBRARYModel.TBLABOUT">
+        <MappingFragment StoreEntitySet="TBLABOUT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="TBLACTIONs">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLACTION">
         <MappingFragment StoreEntitySet="TBLACTION">
-          <ScalarProperty Name="ISCOMPLATED" ColumnName="ISCOMPLATED" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="BOOK" ColumnName="BOOK" />
           <ScalarProperty Name="MEMBER" ColumnName="MEMBER" />
           <ScalarProperty Name="STAFF" ColumnName="STAFF" />
           <ScalarProperty Name="BORROWDATE" ColumnName="BORROWDATE" />
           <ScalarProperty Name="RETURNDATE" ColumnName="RETURNDATE" />
+          <ScalarProperty Name="ISCOMPLATED" ColumnName="ISCOMPLATED" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLANNOUNCEMENTS">
+      <EntityTypeMapping TypeName="DBLIBRARYModel.TBLANNOUNCEMENT">
+        <MappingFragment StoreEntitySet="TBLANNOUNCEMENTS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+          <ScalarProperty Name="CONTENTS" ColumnName="CONTENTS" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -47,8 +65,6 @@
     <EntitySetMapping Name="TBLBOOKs">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLBOOK">
         <MappingFragment StoreEntitySet="TBLBOOK">
-          <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
-          <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
           <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
@@ -57,15 +73,28 @@
           <ScalarProperty Name="PRINTINGHOUSE" ColumnName="PRINTINGHOUSE" />
           <ScalarProperty Name="PAGE" ColumnName="PAGE" />
           <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+          <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TBLCATEGORies">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLCATEGORY">
         <MappingFragment StoreEntitySet="TBLCATEGORY">
-          <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLCONTACTs">
+      <EntityTypeMapping TypeName="DBLIBRARYModel.TBLCONTACT">
+        <MappingFragment StoreEntitySet="TBLCONTACT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+          <ScalarProperty Name="TOPIC" ColumnName="TOPIC" />
+          <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -81,6 +110,18 @@
           <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
           <ScalarProperty Name="PHONE" ColumnName="PHONE" />
           <ScalarProperty Name="SCHOOL" ColumnName="SCHOOL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLMESSAGES">
+      <EntityTypeMapping TypeName="DBLIBRARYModel.TBLMESSAGE">
+        <MappingFragment StoreEntitySet="TBLMESSAGES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SENDER" ColumnName="SENDER" />
+          <ScalarProperty Name="RECEIVER" ColumnName="RECEIVER" />
+          <ScalarProperty Name="TOPIC" ColumnName="TOPIC" />
+          <ScalarProperty Name="CONTENTS" ColumnName="CONTENTS" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -101,37 +142,6 @@
         <MappingFragment StoreEntitySet="TBLSTAFF">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="STAFF" ColumnName="STAFF" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBLABOUTs">
-      <EntityTypeMapping TypeName="DBLIBRARYModel.TBLABOUT">
-        <MappingFragment StoreEntitySet="TBLABOUT">
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBLCONTACTs">
-      <EntityTypeMapping TypeName="DBLIBRARYModel.TBLCONTACT">
-        <MappingFragment StoreEntitySet="TBLCONTACT">
-          <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
-          <ScalarProperty Name="TOPIC" ColumnName="TOPIC" />
-          <ScalarProperty Name="MAIL" ColumnName="MAIL" />
-          <ScalarProperty Name="NAME" ColumnName="NAME" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TBLMESSAGES">
-      <EntityTypeMapping TypeName="DBLIBRARYModel.TBLMESSAGE">
-        <MappingFragment StoreEntitySet="TBLMESSAGES">
-          <ScalarProperty Name="DATE" ColumnName="DATE" />
-          <ScalarProperty Name="CONTENTS" ColumnName="CONTENTS" />
-          <ScalarProperty Name="TOPIC" ColumnName="TOPIC" />
-          <ScalarProperty Name="RECEIVER" ColumnName="RECEIVER" />
-          <ScalarProperty Name="SENDER" ColumnName="SENDER" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
