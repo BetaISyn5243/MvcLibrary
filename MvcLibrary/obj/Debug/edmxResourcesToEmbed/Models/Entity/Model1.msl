@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DBKUTUPHANEModelStoreContainer" CdmEntityContainer="DBLIBRARYEntities1">
+  <EntityContainerMapping StorageEntityContainer="DBLIBRARYModelStoreContainer" CdmEntityContainer="DBLIBRARYEntities1">
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="DBLIBRARYModel.sysdiagram">
+      <EntityTypeMapping TypeName="DBLIBRARYModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -12,7 +12,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TBLABOUTs">
+    <EntitySetMapping Name="TBLABOUT">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLABOUT">
         <MappingFragment StoreEntitySet="TBLABOUT">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -20,7 +20,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TBLACTIONs">
+    <EntitySetMapping Name="TBLACTION">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLACTION">
         <MappingFragment StoreEntitySet="TBLACTION">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -34,7 +34,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TBLANNOUNCEMENTS">
-      <EntityTypeMapping TypeName="DBLIBRARYModel.TBLANNOUNCEMENT">
+      <EntityTypeMapping TypeName="DBLIBRARYModel.TBLANNOUNCEMENTS">
         <MappingFragment StoreEntitySet="TBLANNOUNCEMENTS">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
@@ -43,7 +43,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TBLAUTHORs">
+    <EntitySetMapping Name="TBLAUTHOR">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLAUTHOR">
         <MappingFragment StoreEntitySet="TBLAUTHOR">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -53,7 +53,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TBLBANKs">
+    <EntitySetMapping Name="TBLBANK">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLBANK">
         <MappingFragment StoreEntitySet="TBLBANK">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -62,7 +62,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TBLBOOKs">
+    <EntitySetMapping Name="TBLBOOK">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLBOOK">
         <MappingFragment StoreEntitySet="TBLBOOK">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -78,7 +78,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TBLCATEGORies">
+    <EntitySetMapping Name="TBLCATEGORY">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLCATEGORY">
         <MappingFragment StoreEntitySet="TBLCATEGORY">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -87,7 +87,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TBLCONTACTs">
+    <EntitySetMapping Name="TBLCONTACT">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLCONTACT">
         <MappingFragment StoreEntitySet="TBLCONTACT">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -99,7 +99,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TBLMEMBERS">
-      <EntityTypeMapping TypeName="DBLIBRARYModel.TBLMEMBER">
+      <EntityTypeMapping TypeName="DBLIBRARYModel.TBLMEMBERS">
         <MappingFragment StoreEntitySet="TBLMEMBERS">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
@@ -114,7 +114,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TBLMESSAGES">
-      <EntityTypeMapping TypeName="DBLIBRARYModel.TBLMESSAGE">
+      <EntityTypeMapping TypeName="DBLIBRARYModel.TBLMESSAGES">
         <MappingFragment StoreEntitySet="TBLMESSAGES">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="SENDER" ColumnName="SENDER" />
@@ -125,7 +125,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TBLPENALTies">
+    <EntitySetMapping Name="TBLPENALTY">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLPENALTY">
         <MappingFragment StoreEntitySet="TBLPENALTY">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -137,7 +137,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TBLSTAFFs">
+    <EntitySetMapping Name="TBLSTAFF">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLSTAFF">
         <MappingFragment StoreEntitySet="TBLSTAFF">
           <ScalarProperty Name="ID" ColumnName="ID" />

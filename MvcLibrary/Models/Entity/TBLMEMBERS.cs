@@ -12,13 +12,13 @@ namespace MvcLibrary.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class TBLMEMBER
+    public partial class TBLMEMBERS
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TBLMEMBER()
+        public TBLMEMBERS()
         {
-            this.TBLACTIONs = new HashSet<TBLACTION>();
-            this.TBLPENALTies = new HashSet<TBLPENALTY>();
+            this.TBLACTION = new HashSet<TBLACTION>();
+            this.TBLPENALTY = new HashSet<TBLPENALTY>();
         }
     
         public int ID { get; set; }
@@ -32,8 +32,8 @@ namespace MvcLibrary.Models.Entity
         public string SCHOOL { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBLACTION> TBLACTIONs { get; set; }
+        public virtual ICollection<TBLACTION> TBLACTION { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBLPENALTY> TBLPENALTies { get; set; }
+        public virtual ICollection<TBLPENALTY> TBLPENALTY { get; set; }
     }
 }

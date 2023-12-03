@@ -17,7 +17,7 @@ namespace MvcLibrary.Models.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TBLBOOK()
         {
-            this.TBLACTIONs = new HashSet<TBLACTION>();
+            this.TBLACTION = new HashSet<TBLACTION>();
         }
     
         public int ID { get; set; }
@@ -32,7 +32,7 @@ namespace MvcLibrary.Models.Entity
         public Nullable<bool> ISDELETED { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBLACTION> TBLACTIONs { get; set; }
+        public virtual ICollection<TBLACTION> TBLACTION { get; set; }
         public virtual TBLAUTHOR TBLAUTHOR { get; set; }
         public virtual TBLCATEGORY TBLCATEGORY { get; set; }
     }

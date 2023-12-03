@@ -176,3 +176,7 @@ C:\Users\gullu\OneDrive\Desktop\MvcLibrary\MvcLibrary\bin\Microsoft.Configuratio
 C:\Users\gullu\OneDrive\Desktop\MvcLibrary\MvcLibrary\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll
 C:\Users\gullu\OneDrive\Desktop\MvcLibrary\MvcLibrary\bin\Microsoft.Configuration.ConfigurationBuilders.Base.xml
 C:\Users\gullu\OneDrive\Desktop\MvcLibrary\MvcLibrary\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.xml
+C:\Users\Nakre\Desktop\MvcLibrary\MvcLibrary\obj\Debug\MvcLibrary.csproj.AssemblyReference.cache
+C:\Users\Nakre\Desktop\MvcLibrary\MvcLibrary\obj\Debug\MvcLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Nakre\Desktop\MvcLibrary\MvcLibrary\obj\Debug\MvcLibrary.dll
+C:\Users\Nakre\Desktop\MvcLibrary\MvcLibrary\obj\Debug\MvcLibrary.pdb

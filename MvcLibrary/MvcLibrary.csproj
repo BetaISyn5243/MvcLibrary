@@ -173,7 +173,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entity\sysdiagram.cs">
+    <Compile Include="Models\Entity\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\TBLABOUT.cs">
@@ -182,7 +182,7 @@
     <Compile Include="Models\Entity\TBLACTION.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entity\TBLANNOUNCEMENT.cs">
+    <Compile Include="Models\Entity\TBLANNOUNCEMENTS.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\TBLAUTHOR.cs">
@@ -200,10 +200,10 @@
     <Compile Include="Models\Entity\TBLCONTACT.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entity\TBLMEMBER.cs">
+    <Compile Include="Models\Entity\TBLMEMBERS.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entity\TBLMESSAGE.cs">
+    <Compile Include="Models\Entity\TBLMESSAGES.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\TBLPENALTY.cs">

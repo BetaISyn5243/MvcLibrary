@@ -14,9 +14,9 @@ namespace MvcLibrary.Controllers
         public ActionResult Index()
         {
             ViewBag.dgr1 = db.TBLMEMBERS.Count();
-            ViewBag.dgr2 = db.TBLBOOKs.Count();
-            ViewBag.dgr3 = db.TBLBOOKs.Where(x => x.STATUS == false).Count();
-            ViewBag.dgr4 = db.TBLPENALTies.Sum(x => x.MONEY);
+            ViewBag.dgr2 = db.TBLBOOK.Count();
+            ViewBag.dgr3 = db.TBLBOOK.Where(x => x.STATUS == false).Count();
+            ViewBag.dgr4 = db.TBLPENALTY.Sum(x => x.MONEY);
             return View();
         }
         public ActionResult Weather() { return View(); }

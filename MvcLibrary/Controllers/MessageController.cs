@@ -26,7 +26,7 @@ namespace MvcLibrary.Controllers
         // GET: Message
   
         [HttpPost]
-        public ActionResult Send(TBLMESSAGE p)
+        public ActionResult Send(TBLMESSAGES p)
         {
             p.SENDER = Session["Mail"].ToString();
             p.DATE = DateTime.Now;

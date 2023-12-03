@@ -17,7 +17,7 @@ namespace MvcLibrary.Models.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TBLACTION()
         {
-            this.TBLPENALTies = new HashSet<TBLPENALTY>();
+            this.TBLPENALTY = new HashSet<TBLPENALTY>();
         }
     
         public int ID { get; set; }
@@ -30,8 +30,8 @@ namespace MvcLibrary.Models.Entity
     
         public virtual TBLSTAFF TBLSTAFF { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBLPENALTY> TBLPENALTies { get; set; }
+        public virtual ICollection<TBLPENALTY> TBLPENALTY { get; set; }
         public virtual TBLBOOK TBLBOOK { get; set; }
-        public virtual TBLMEMBER TBLMEMBER { get; set; }
+        public virtual TBLMEMBERS TBLMEMBERS { get; set; }
     }
 }

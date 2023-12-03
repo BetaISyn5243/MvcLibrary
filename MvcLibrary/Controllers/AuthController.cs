@@ -23,7 +23,7 @@ namespace MvcLibrary.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(TBLMEMBER p)
+        public ActionResult Login(TBLMEMBERS p)
         {   
             var values = db.TBLMEMBERS.FirstOrDefault(x=>(x.MAIL ==p.MAIL)&&x.PASSWORD==p.PASSWORD);
             if (values != null)
@@ -47,7 +47,7 @@ namespace MvcLibrary.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Register(TBLMEMBER p)
+        public ActionResult Register(TBLMEMBERS p)
         {
             return View();
         }

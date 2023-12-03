@@ -12,7 +12,7 @@ namespace MvcLibrary.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class TBLMESSAGE
+    public partial class TBLMESSAGES
     {
         public int ID { get; set; }
         public string SENDER { get; set; }

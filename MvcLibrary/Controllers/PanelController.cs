@@ -22,7 +22,7 @@ namespace MvcLibrary.Controllers
             return View(values);
         }
         [HttpPost]
-        public ActionResult UpdatePassword(TBLMEMBER p)
+        public ActionResult UpdatePassword(TBLMEMBERS p)
         {
             var mail = (string)Session["Mail"];
 
@@ -35,7 +35,7 @@ namespace MvcLibrary.Controllers
         {
             var member = Session["Mail"];
             var id = db.TBLMEMBERS.Where(x => x.MAIL == member.ToString()).Select(z => z.ID).FirstOrDefault();
-            var values = db.TBLACTIONs.Where(x => x.MEMBER == id).ToList();
+            var values = db.TBLACTION.Where(x => x.MEMBER == id).ToList();
             return View(values);
         }
         public ActionResult Announcement()

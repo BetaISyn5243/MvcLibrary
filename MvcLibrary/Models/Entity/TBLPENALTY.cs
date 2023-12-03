@@ -22,6 +22,6 @@ namespace MvcLibrary.Models.Entity
         public Nullable<decimal> MONEY { get; set; }
     
         public virtual TBLACTION TBLACTION { get; set; }
-        public virtual TBLMEMBER TBLMEMBER { get; set; }
+        public virtual TBLMEMBERS TBLMEMBERS { get; set; }
     }
 }

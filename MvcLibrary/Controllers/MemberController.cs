@@ -32,7 +32,7 @@ namespace MvcLibrary.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddMember(TBLMEMBER p)
+        public ActionResult AddMember(TBLMEMBERS p)
         {
             if (!ModelState.IsValid)
             {
@@ -59,10 +59,10 @@ namespace MvcLibrary.Controllers
         public ActionResult GetMemberActions(int id)
         {
             ViewBag.u1= db.TBLMEMBERS.Find(id).NAME+" "+ db.TBLMEMBERS.Find(id).SURNAME;
-            var actions = db.TBLACTIONs.Where(a=>a.MEMBER==id).ToList();
+            var actions = db.TBLACTION.Where(a=>a.MEMBER==id).ToList();
             return View(actions);
         }
-        public ActionResult UpdateMember(TBLMEMBER p)
+        public ActionResult UpdateMember(TBLMEMBERS p)
         {
             var member = db.TBLMEMBERS.Find(p.ID);
             member.NAME = p.NAME;
