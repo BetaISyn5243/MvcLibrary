@@ -4,27 +4,27 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f9448486f94d4d62903cafe44e094bfc" Name="Diagram1">
-        <EntityTypeShape EntityType="DBLIBRARYModel.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLACTION" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLAUTHOR" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLBANK" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLBOOK" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLCATEGORY" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLMEMBER" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLPENALTY" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLSTAFF" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
-        <AssociationConnector Association="DBLIBRARYModel.FK_TBLACTION_TBLBOOK" ManuallyRouted="false" />
-        <AssociationConnector Association="DBLIBRARYModel.FK_TBLACTION_TBLMEMBERS" ManuallyRouted="false" />
-        <AssociationConnector Association="DBLIBRARYModel.FK_TBLPENALTY_TBLACTION" ManuallyRouted="false" />
-        <AssociationConnector Association="DBLIBRARYModel.FK_TBLBOOK_TBLAUTHOR" ManuallyRouted="false" />
-        <AssociationConnector Association="DBLIBRARYModel.FK_TBLBOOK_TBLCATEGORY" ManuallyRouted="false" />
-        <AssociationConnector Association="DBLIBRARYModel.FK_TBLPENALTY_TBLMEMBERS" ManuallyRouted="false" />
-        <AssociationConnector Association="DBLIBRARYModel.FK_TBLACTION_TBLSTAFF" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLABOUT" Width="1.5" PointX="8.375" PointY="7.75" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLCONTACT" Width="1.5" PointX="0.75" PointY="9.75" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLMESSAGE" Width="1.5" PointX="10.375" PointY="0.75" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLANNOUNCEMENT" Width="1.5" PointX="10.375" PointY="3.75" />
+      <Diagram DiagramId="53843b4192314f8690c584b3ba6ee07f" Name="Diagram1">
+        <EntityTypeShape EntityType="DBLIBRARYModel.sysdiagram" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLABOUT" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLACTION" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLANNOUNCEMENT" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLAUTHOR" Width="1.5" PointX="1.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLBANK" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLBOOK" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLCATEGORY" Width="1.5" PointX="1.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLCONTACT" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLMEMBER" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLMESSAGE" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLPENALTY" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLSTAFF" Width="1.5" PointX="0.75" PointY="17.125" IsExpanded="true" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TBLACTION_TBLSTAFF" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TBLCEZALAR_TBLHAREKET" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TBLHAREKET_TBLKITAP" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TBLHAREKET_TBLUYELER" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TBLKITAP_TBLYAZAR" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TBLKITAP_TBLKATEGORI" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TBLCEZALAR_TBLUYELER" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

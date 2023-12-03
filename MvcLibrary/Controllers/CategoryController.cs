@@ -19,6 +19,7 @@ namespace MvcLibrary.Controllers
         [HttpPost]
         public ActionResult AddCategory(TBLCATEGORY p)
         {
+            p.ISDELETED = false;
             db.TBLCATEGORies.Add(p);
             db.SaveChanges();
             return RedirectToAction("Index");

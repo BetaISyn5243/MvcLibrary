@@ -32,6 +32,7 @@ namespace MvcLibrary.Controllers
         [HttpPost]
         public ActionResult AddBook(TBLBOOK p)
         {
+            p.ISDELETED = false;
             p.TBLCATEGORY = db.TBLCATEGORies.Where(c => c.ID == p.TBLCATEGORY.ID).FirstOrDefault();
             p.TBLAUTHOR = db.TBLAUTHORs.Where(a => a.ID == p.TBLAUTHOR.ID).FirstOrDefault();
             p.STATUS = true;

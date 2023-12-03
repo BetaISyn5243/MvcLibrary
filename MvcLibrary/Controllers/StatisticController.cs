@@ -19,9 +19,6 @@ namespace MvcLibrary.Controllers
             ViewBag.dgr4 = db.TBLPENALTies.Sum(x=>x.MONEY);
             return View();
         }
-        public ActionResult Weather() { return View(); }
-        public ActionResult WeatherCarts() {  return View(); }
-        public ActionResult Gallery() {  return View(); }   
         [HttpPost]
         public ActionResult UploadImage(HttpPostedFileBase file) {
             if (file == null) { string filepath = Path.Combine(Server.MapPath("~/web2/resimler"),Path.GetFileName(file.FileName)); file.SaveAs(filepath); return RedirectToAction("Gallery"); }
