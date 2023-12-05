@@ -13,7 +13,7 @@ namespace MvcLibrary.Controllers
         DBLIBRARYEntities1 db = new DBLIBRARYEntities1();
         public ActionResult Index()
         {
-            var values = db.TBLAUTHOR.ToList();
+            var values = db.TBLAUTHORs.ToList();
             return View(values);
         }
 
@@ -26,31 +26,31 @@ namespace MvcLibrary.Controllers
         [HttpPost]
         public ActionResult AddAuthor(TBLAUTHOR p)
         {
-            db.TBLAUTHOR.Add(p);
+            db.TBLAUTHORs.Add(p);
             db.SaveChanges();
             return RedirectToAction("Index");
         }   
         public ActionResult DeleteAuthor(int id)
         {
-            var author = db.TBLAUTHOR.Find(id);
-            db.TBLAUTHOR.Remove(author);
+            var author = db.TBLAUTHORs.Find(id);
+            db.TBLAUTHORs.Remove(author);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         public ActionResult GetAuthor(int id) {
 
-            var author = db.TBLAUTHOR.Find(id);
+            var author = db.TBLAUTHORs.Find(id);
             return View("GetAuthor",author);
         }
         public ActionResult GetAuthorsBooks(int id) {
 
-            ViewBag.y1 = db.TBLAUTHOR.Find(id).NAME+" "+ db.TBLAUTHOR.Find(id).SURNAME;
-            var values = db.TBLBOOK.Where(b=>b.ISDELETED==false).Where(b => b.TBLAUTHOR.ID == id).ToList();
+            ViewBag.y1 = db.TBLAUTHORs.Find(id).NAME+" "+ db.TBLAUTHORs.Find(id).SURNAME;
+            var values = db.TBLBOOKs.Where(b=>b.ISDELETED==false).Where(b => b.TBLAUTHOR.ID == id).ToList();
             return View(values);
         }
         public ActionResult UpdateAuthor(TBLAUTHOR p) {
-            var author = db.TBLAUTHOR.Find(p.ID);
+            var author = db.TBLAUTHORs.Find(p.ID);
             author.NAME = p.NAME;
             author.SURNAME = p.SURNAME;
             author.DETAIL = p.DETAIL;

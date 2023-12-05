@@ -25,18 +25,17 @@ namespace MvcLibrary.Models.Entity
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<TBLABOUT> TBLABOUT { get; set; }
-        public virtual DbSet<TBLACTION> TBLACTION { get; set; }
-        public virtual DbSet<TBLANNOUNCEMENTS> TBLANNOUNCEMENTS { get; set; }
-        public virtual DbSet<TBLAUTHOR> TBLAUTHOR { get; set; }
-        public virtual DbSet<TBLBANK> TBLBANK { get; set; }
-        public virtual DbSet<TBLBOOK> TBLBOOK { get; set; }
-        public virtual DbSet<TBLCATEGORY> TBLCATEGORY { get; set; }
-        public virtual DbSet<TBLCONTACT> TBLCONTACT { get; set; }
-        public virtual DbSet<TBLMEMBERS> TBLMEMBERS { get; set; }
-        public virtual DbSet<TBLMESSAGES> TBLMESSAGES { get; set; }
-        public virtual DbSet<TBLPENALTY> TBLPENALTY { get; set; }
-        public virtual DbSet<TBLSTAFF> TBLSTAFF { get; set; }
+        public virtual DbSet<TBLABOUT> TBLABOUTs { get; set; }
+        public virtual DbSet<TBLACTION> TBLACTIONs { get; set; }
+        public virtual DbSet<TBLANNOUNCEMENT> TBLANNOUNCEMENTS { get; set; }
+        public virtual DbSet<TBLAUTHOR> TBLAUTHORs { get; set; }
+        public virtual DbSet<TBLBANK> TBLBANKs { get; set; }
+        public virtual DbSet<TBLBOOK> TBLBOOKs { get; set; }
+        public virtual DbSet<TBLCATEGORY> TBLCATEGORies { get; set; }
+        public virtual DbSet<TBLCONTACT> TBLCONTACTs { get; set; }
+        public virtual DbSet<TBLMEMBER> TBLMEMBERS { get; set; }
+        public virtual DbSet<TBLMESSAGE> TBLMESSAGES { get; set; }
+        public virtual DbSet<TBLPENALTY> TBLPENALTies { get; set; }
+        public virtual DbSet<TBLSTAFF> TBLSTAFFs { get; set; }
     }
 }

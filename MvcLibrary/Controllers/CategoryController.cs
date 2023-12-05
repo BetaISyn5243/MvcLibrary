@@ -12,7 +12,7 @@ namespace MvcLibrary.Controllers
         DBLIBRARYEntities1 db = new DBLIBRARYEntities1 ();
         public ActionResult Index()
         {
-            var values = db.TBLCATEGORY.Where(c=>c.ISDELETED ==false).ToList ();
+            var values = db.TBLCATEGORies.Where(c=>c.ISDELETED ==false).ToList ();
             return View(values);
         }
 
@@ -20,7 +20,7 @@ namespace MvcLibrary.Controllers
         public ActionResult AddCategory(TBLCATEGORY p)
         {
             p.ISDELETED = false;
-            db.TBLCATEGORY.Add(p);
+            db.TBLCATEGORies.Add(p);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -34,7 +34,7 @@ namespace MvcLibrary.Controllers
         public ActionResult UpdateCategory(TBLCATEGORY p)
         {
 
-            var category = db.TBLCATEGORY.Find(p.ID);
+            var category = db.TBLCATEGORies.Find(p.ID);
             category.NAME = p.NAME;
             db.SaveChanges ();
             return RedirectToAction("Index");
@@ -43,14 +43,14 @@ namespace MvcLibrary.Controllers
         public ActionResult GetCategory(int id)
         {
 
-            var category = db.TBLCATEGORY.Find(id);
+            var category = db.TBLCATEGORies.Find(id);
             return View("GetCategory", category);
 
         }
 
         public ActionResult DeleteCategory(int id)
         {
-            var category = db.TBLCATEGORY.Find(id);
+            var category = db.TBLCATEGORies.Find(id);
             category.ISDELETED = true;
             db.SaveChanges();
             return RedirectToAction("Index");

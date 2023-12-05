@@ -13,7 +13,7 @@ namespace MvcLibrary.Controllers
         // GET: Staff
         public ActionResult Index()
         {
-            var values = db.TBLSTAFF.ToList();
+            var values = db.TBLSTAFFs.ToList();
             return View(values);
         }
 
@@ -30,14 +30,14 @@ namespace MvcLibrary.Controllers
             {
                 return View("AddStaff");
             }
-            db.TBLSTAFF.Add(p);
+            db.TBLSTAFFs.Add(p);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
         public ActionResult DeleteStaff(int id)
         {
-            var staff = db.TBLSTAFF.Find(id);
-            db.TBLSTAFF.Remove(staff);
+            var staff = db.TBLSTAFFs.Find(id);
+            db.TBLSTAFFs.Remove(staff);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -45,12 +45,12 @@ namespace MvcLibrary.Controllers
         public ActionResult GetStaff(int id)
         {
 
-            var staff = db.TBLSTAFF.Find(id);
+            var staff = db.TBLSTAFFs.Find(id);
             return View("GetStaff", staff);
         }
         public ActionResult UpdateStaff(TBLSTAFF p)
         {
-            var staff = db.TBLSTAFF.Find(p.ID);
+            var staff = db.TBLSTAFFs.Find(p.ID);
             staff.STAFF = p.STAFF;
             db.SaveChanges();
             return RedirectToAction("Index");

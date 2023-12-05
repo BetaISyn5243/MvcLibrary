@@ -17,13 +17,13 @@ namespace MvcLibrary.Models.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TBLSTAFF()
         {
-            this.TBLACTION = new HashSet<TBLACTION>();
+            this.TBLACTIONs = new HashSet<TBLACTION>();
         }
     
         public int ID { get; set; }
         public string STAFF { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBLACTION> TBLACTION { get; set; }
+        public virtual ICollection<TBLACTION> TBLACTIONs { get; set; }
     }
 }

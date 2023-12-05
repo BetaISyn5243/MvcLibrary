@@ -4,18 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8a1bb1f72ff4419c93406e83035b43a8" Name="Diagram1">
-        <EntityTypeShape EntityType="DBLIBRARYModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLABOUT" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+      <Diagram DiagramId="b6b2ed53e87d473cbee4dfb076187884" Name="Diagram1">
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLABOUT" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBLIBRARYModel.TBLACTION" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLANNOUNCEMENTS" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLANNOUNCEMENT" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBLIBRARYModel.TBLAUTHOR" Width="1.5" PointX="1.5" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLBANK" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLBANK" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBLIBRARYModel.TBLBOOK" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DBLIBRARYModel.TBLCATEGORY" Width="1.5" PointX="1.5" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLCONTACT" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLMEMBERS" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBLIBRARYModel.TBLMESSAGES" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLCONTACT" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLMEMBER" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLMESSAGE" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBLIBRARYModel.TBLPENALTY" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DBLIBRARYModel.TBLSTAFF" Width="1.5" PointX="0.75" PointY="17.125" IsExpanded="true" />
         <AssociationConnector Association="DBLIBRARYModel.FK_TBLACTION_TBLSTAFF" ManuallyRouted="false" />
