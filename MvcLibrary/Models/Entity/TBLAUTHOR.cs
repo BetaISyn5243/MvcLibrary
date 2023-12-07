@@ -24,6 +24,7 @@ namespace MvcLibrary.Models.Entity
         public string NAME { get; set; }
         public string SURNAME { get; set; }
         public string DETAIL { get; set; }
+        public Nullable<bool> ISDELETE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBLBOOK> TBLBOOKs { get; set; }

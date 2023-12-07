@@ -26,10 +26,10 @@
                 @Html.ActionLink("Delete", "DeleteStaff", new { id = stf.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Are You Sure?')" })
 
             </td>
-            <td><a href="/Staff/GetStaff/@stf.ID" class="btn btn-success">Update</a></td>
+            <td><a href="/Admin/Staff/GetStaff/@stf.ID" class="btn btn-success">Update</a></td>
         </tr>
     }
 
 </table>
 
-<a href="/Staff/AddStaff" class="btn btn-primary">Add New Staff</a>
+<a href="/Admin/Staff/AddStaff" class="btn btn-primary">Add New Staff</a>

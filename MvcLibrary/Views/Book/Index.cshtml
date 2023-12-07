@@ -5,14 +5,14 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h2>Books</h2>
+<h2>Kitaplar</h2>
 
 @using (Html.BeginForm("Index", "Book", FormMethod.Get))
 {
     
     <div style="margin-bottom:15px;margin-top:15px;" class="row px-3">
         <div class="col-auto form-label align-self-center">
-            <b >Search Book With Name: </b>
+            <b >Kitap ismi ile ara: </b>
         </div>
         <div class="col-4">
             @Html.TextBox("p", null, new { @class = "form-control" })
@@ -28,15 +28,15 @@
 <table class="table table-bordered">
     <tr>
         <td>ID</td>
-        <td>Book Name</td>
-        <td>Book Author</td>
-        <td>Category</td>
-        <td>Publish Date</td>
-        <td>Publisher</td>
-        <td>Page</td>
-        <td>Status</td>
-        <td>Delete</td>
-        <td>Update</td>
+        <td>Kitap Adı</td>
+        <td>Kitap Yazarı</td>
+        <td>Kategori</td>
+        <td>Yüklenme Tarihi</td>
+        <td>Yükleyen</td>
+        <td>Sayfa</td>
+        <td>Durum</td>
+        <td>Sil</td>
+        <td>Güncelle</td>
 
     </tr>
     @foreach (var y in Model)
@@ -55,9 +55,9 @@
                 @Html.ActionLink("Delete", "DeleteBook", new { id = y.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Are You Sure?')" })
 
             </td>
-            <td><a href="/Book/GetBook/@y.ID" class="btn btn-success">Update</a></td>
+            <td><a href="/Admin/Book/GetBook/@y.ID" class="btn btn-success">Güncelle</a></td>
         </tr>
     }
 </table>
 
-<a class="btn btn-primary" href="/Book/AddBook">Add New Book</a>
+<a class="btn btn-primary" href="/Admin/Book/AddBook">Yeni Kitap Ekle</a>

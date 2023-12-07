@@ -6,10 +6,15 @@ using System.Web.Mvc;
 using MvcLibrary.Models.Entity;
 namespace MvcLibrary.Controllers
 {
+    [RoutePrefix("Admin")]
     public class CategoryController : Controller
     {
         // GET: Catergory
         DBLIBRARYEntities1 db = new DBLIBRARYEntities1 ();
+        [Authorize]
+
+        [Authorize]
+        [Route("Category")]
         public ActionResult Index()
         {
             var values = db.TBLCATEGORies.Where(c=>c.ISDELETED ==false).ToList ();
@@ -17,6 +22,7 @@ namespace MvcLibrary.Controllers
         }
 
         [HttpPost]
+        [Route("Category/AddCategory")]
         public ActionResult AddCategory(TBLCATEGORY p)
         {
             p.ISDELETED = false;
@@ -26,10 +32,14 @@ namespace MvcLibrary.Controllers
         }
 
         [HttpGet]
+        [Route("Category/AddCategory")]
+
+
         public ActionResult AddCategory()
         {
             return View();
         }
+        [Route("Category/UpdateCategory")]
 
         public ActionResult UpdateCategory(TBLCATEGORY p)
         {
@@ -40,6 +50,8 @@ namespace MvcLibrary.Controllers
             return RedirectToAction("Index");
 
         }
+        [Route("Category/GetCategory/{id}")]
+
         public ActionResult GetCategory(int id)
         {
 
@@ -47,6 +59,8 @@ namespace MvcLibrary.Controllers
             return View("GetCategory", category);
 
         }
+        
+        [Route("Category/DeleteCategory/{id}")]
 
         public ActionResult DeleteCategory(int id)
         {

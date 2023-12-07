@@ -14,10 +14,9 @@ namespace MvcLibrary
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            //routes.MapMvcAttributeRoutes();
-            // Admin alanı için route
+            routes.MapMvcAttributeRoutes();
             routes.MapRoute(
-                name: "default",
+                name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );

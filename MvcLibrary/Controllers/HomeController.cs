@@ -7,10 +7,14 @@ using System.Web.Mvc;
 using MvcLibrary.Models.Entity;
 namespace MvcLibrary.Controllers
 {
+    [RoutePrefix("Admin")]
     public class HomeController : Controller
     {
         // GET: Statistic
         DBLIBRARYEntities1 db = new DBLIBRARYEntities1();
+        [Authorize]
+
+        [Route("Home")]
         public ActionResult Index()
         {
             ViewBag.dgr1 = db.TBLMEMBERS.Count();
@@ -19,9 +23,6 @@ namespace MvcLibrary.Controllers
             ViewBag.dgr4 = db.TBLPENALTies.Sum(x => x.MONEY);
             return View();
         }
-        public ActionResult Weather() { return View(); }
-        public ActionResult WeatherCarts() { return View(); }
-        public ActionResult Gallery() { return View(); }
         [HttpPost]
         public ActionResult UploadImage(HttpPostedFileBase file)
         {

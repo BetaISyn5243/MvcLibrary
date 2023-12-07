@@ -5,41 +5,42 @@
 }
 
 
-<form class="form-group" method="post">
+@using (Html.BeginForm("Borrow", "Admin/Borrow", FormMethod.Post, new { @class = "needs-validation", @novalidate = "novalidate" }))
+{
     <div></div>
 
     <div class="container-fluid p-3">
         <div class="row" style=" margin-top: 15px">
             <div class="col-4 p-2">
-                <label>Member ID</label>
+                <label>Kullanıcı ID</label>
                 @Html.DropDownListFor(b => b.TBLMEMBER.ID, (List<SelectListItem>)ViewBag.memberList, new { @class = "form-control" })
             </div>
             <div class="col-4 p-2">
-                <label>Book ID</label>
+                <label>Kitap ID</label>
                 @*@Html.TextBoxFor(b => b.BOOK, new { @class = "form-control" })*@
                 @Html.DropDownListFor(b => b.TBLBOOK.ID, (List<SelectListItem>)ViewBag.bookList, new { @class = "form-control" })
 
             </div>
             <div class="col-4 p-2">
-                <label>Staff ID</label>
+                <label>Görevli ID</label>
                 @*@Html.TextBoxFor(b => b.STAFF, new { @class = "form-control" })*@
                 @Html.DropDownListFor(b => b.TBLSTAFF.ID, (List<SelectListItem>)ViewBag.staffList, new { @class = "form-control" })
 
             </div>
 
             <div class="col-6 p-2">
-                <label>Borrow Date </label>
-                @Html.TextBoxFor(b => b.BORROWDATE, new { @class = "form-control",@Value=DateTime.Now.ToShortDateString() })
+                <label>Ödünç Alınma Tarihi </label>
+                @Html.TextBoxFor(b => b.BORROWDATE, new { @class = "form-control", @Value = DateTime.Now.ToShortDateString() })
             </div>
-    
-              
+
+
 
         </div>
     </div>
 
 
     <div style="margin-top:15px">
-        <button class="btn btn-info" id="add-Button">Borrow Book</button>
+        <button class="btn btn-info" id="add-Button">Ödünç Al</button>
     </div>
-</form>
+}
 

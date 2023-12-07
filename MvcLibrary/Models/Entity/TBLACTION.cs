@@ -27,6 +27,7 @@ namespace MvcLibrary.Models.Entity
         public Nullable<System.DateTime> BORROWDATE { get; set; }
         public Nullable<System.DateTime> RETURNDATE { get; set; }
         public Nullable<bool> ISCOMPLATED { get; set; }
+        public Nullable<bool> ISDELETED { get; set; }
     
         public virtual TBLSTAFF TBLSTAFF { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

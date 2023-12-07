@@ -8,13 +8,13 @@ using System.Web.Security;
 
 namespace MvcLibrary.Controllers
 {
+    [RoutePrefix("Student")]
     public class PanelController : Controller
     {
         DBLIBRARYEntities1 db = new DBLIBRARYEntities1();
-
-        // GET: Panel
         [Authorize]
-
+        // GET: Panel
+        [Route("Panel")]
         public ActionResult Index()
         {
             var mail = (string)Session["Mail"];
@@ -22,6 +22,8 @@ namespace MvcLibrary.Controllers
             return View(values);
         }
         [HttpPost]
+        [Route("Panel/UpdatePassword")]
+
         public ActionResult UpdatePassword(TBLMEMBER p)
         {
             var mail = (string)Session["Mail"];
@@ -31,6 +33,8 @@ namespace MvcLibrary.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [Route("Panel/MyBooks")]
+
         public ActionResult MyBooks()
         {
             var member = Session["Mail"];
@@ -38,17 +42,15 @@ namespace MvcLibrary.Controllers
             var values = db.TBLACTIONs.Where(x => x.MEMBER == id).ToList();
             return View(values);
         }
+        [Route("Panel/Announcement")]
+
         public ActionResult Announcement()
         {
             var announcementList = db.TBLANNOUNCEMENTS.ToList();
 
             return View(announcementList);
         }
-        public ActionResult LogOut()
-        {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Login","Auth");
-        }
+       
 
     }
 }

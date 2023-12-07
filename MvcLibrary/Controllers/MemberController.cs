@@ -8,11 +8,14 @@ using System.Web.Mvc;
 
 namespace MvcLibrary.Controllers
 {
+    [RoutePrefix("Admin")]
+
     public class MemberController : Controller
     {
         // GET: Member
         DBLIBRARYEntities1 db = new DBLIBRARYEntities1();
-
+        [Authorize]
+        [Route("Member")]
         public ActionResult Index(string p,int page=1)
         {
             var member = from k in db.TBLMEMBERS select k;
@@ -26,12 +29,15 @@ namespace MvcLibrary.Controllers
         }
 
         [HttpGet]
+        [Route("Member/AddMember")]
+
         public ActionResult AddMember()
         {
             return View();
         }
 
         [HttpPost]
+        [Route("Member/AddMember")]
         public ActionResult AddMember(TBLMEMBER p)
         {
             if (!ModelState.IsValid)
@@ -42,13 +48,18 @@ namespace MvcLibrary.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [Route("Member/DeleteMember/{id}")]
+
         public ActionResult DeleteMember(int id)
         {
             var member = db.TBLMEMBERS.Find(id);
+            member.ISADMIN = false;
+            member.ISDELETED = true;
             db.TBLMEMBERS.Remove(member);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [Route("Member/GetMember/{id}")]
 
         public ActionResult GetMember(int id)
         {
@@ -56,12 +67,16 @@ namespace MvcLibrary.Controllers
             var member = db.TBLMEMBERS.Find(id);
             return View("GetMember", member);
         }
+        [Route("Member/GetMemberActions/{id}")]
+
         public ActionResult GetMemberActions(int id)
         {
             ViewBag.u1= db.TBLMEMBERS.Find(id).NAME+" "+ db.TBLMEMBERS.Find(id).SURNAME;
             var actions = db.TBLACTIONs.Where(a=>a.MEMBER==id).ToList();
             return View(actions);
         }
+        [Route("Member/UpdateMember")]
+
         public ActionResult UpdateMember(TBLMEMBER p)
         {
             var member = db.TBLMEMBERS.Find(p.ID);

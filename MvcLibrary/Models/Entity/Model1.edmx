@@ -23,6 +23,7 @@
           <Property Name="BORROWDATE" Type="smalldatetime" />
           <Property Name="RETURNDATE" Type="smalldatetime" />
           <Property Name="ISCOMPLATED" Type="bit" />
+          <Property Name="ISDELETED" Type="bit" />
         </EntityType>
         <EntityType Name="TBLANNOUNCEMENTS">
           <Key>
@@ -41,6 +42,7 @@
           <Property Name="NAME" Type="varchar" MaxLength="30" />
           <Property Name="SURNAME" Type="varchar" MaxLength="30" />
           <Property Name="DETAIL" Type="varchar" MaxLength="1000" />
+          <Property Name="ISDELETE" Type="bit" />
         </EntityType>
         <EntityType Name="TBLBANK">
           <Key>
@@ -97,6 +99,7 @@
           <Property Name="PHONE" Type="varchar" MaxLength="20" />
           <Property Name="SCHOOL" Type="varchar" MaxLength="100" />
           <Property Name="ISADMIN" Type="bit" />
+          <Property Name="ISDELETE" Type="bit" />
         </EntityType>
         <EntityType Name="TBLMESSAGES">
           <Key>
@@ -126,6 +129,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="STAFF" Type="varchar" MaxLength="50" />
+          <Property Name="ISDELETED" Type="bit" />
         </EntityType>
         <Association Name="FK_TBLACTION_TBLSTAFF">
           <End Role="TBLSTAFF" Type="Self.TBLSTAFF" Multiplicity="0..1" />
@@ -279,6 +283,7 @@
           <NavigationProperty Name="TBLPENALTies" Relationship="Self.FK_TBLCEZALAR_TBLHAREKET" FromRole="TBLACTION" ToRole="TBLPENALTY" />
           <NavigationProperty Name="TBLBOOK" Relationship="Self.FK_TBLHAREKET_TBLKITAP" FromRole="TBLACTION" ToRole="TBLBOOK" />
           <NavigationProperty Name="TBLMEMBER" Relationship="Self.FK_TBLHAREKET_TBLUYELER" FromRole="TBLACTION" ToRole="TBLMEMBERS" />
+          <Property Name="ISDELETED" Type="Boolean" />
         </EntityType>
         <EntityType Name="TBLANNOUNCEMENT">
           <Key>
@@ -298,6 +303,7 @@
           <Property Name="SURNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="DETAIL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TBLBOOKs" Relationship="Self.FK_TBLKITAP_TBLYAZAR" FromRole="TBLAUTHOR" ToRole="TBLBOOK" />
+          <Property Name="ISDELETE" Type="Boolean" />
         </EntityType>
         <EntityType Name="TBLBANK">
           <Key>
@@ -360,6 +366,7 @@
           <NavigationProperty Name="TBLACTIONs" Relationship="Self.FK_TBLHAREKET_TBLUYELER" FromRole="TBLMEMBERS" ToRole="TBLACTION" />
           <NavigationProperty Name="TBLPENALTies" Relationship="Self.FK_TBLCEZALAR_TBLUYELER" FromRole="TBLMEMBERS" ToRole="TBLPENALTY" />
           <Property Name="ISADMIN" Type="Boolean" />
+          <Property Name="ISDELETE" Type="Boolean" />
         </EntityType>
         <EntityType Name="TBLMESSAGE">
           <Key>
@@ -392,6 +399,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="STAFF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TBLACTIONs" Relationship="Self.FK_TBLACTION_TBLSTAFF" FromRole="TBLSTAFF" ToRole="TBLACTION" />
+          <Property Name="ISDELETED" Type="Boolean" />
         </EntityType>
         <Association Name="FK_TBLACTION_TBLSTAFF">
           <End Role="TBLSTAFF" Type="Self.TBLSTAFF" Multiplicity="0..1" />
@@ -536,6 +544,7 @@
           <EntitySetMapping Name="TBLACTIONs">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLACTION">
               <MappingFragment StoreEntitySet="TBLACTION">
+                <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="BOOK" ColumnName="BOOK" />
                 <ScalarProperty Name="MEMBER" ColumnName="MEMBER" />
@@ -559,6 +568,7 @@
           <EntitySetMapping Name="TBLAUTHORs">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLAUTHOR">
               <MappingFragment StoreEntitySet="TBLAUTHOR">
+                <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
@@ -614,6 +624,7 @@
           <EntitySetMapping Name="TBLMEMBERS">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLMEMBER">
               <MappingFragment StoreEntitySet="TBLMEMBERS">
+                <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
                 <ScalarProperty Name="ISADMIN" ColumnName="ISADMIN" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
@@ -654,6 +665,7 @@
           <EntitySetMapping Name="TBLSTAFFs">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLSTAFF">
               <MappingFragment StoreEntitySet="TBLSTAFF">
+                <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="STAFF" ColumnName="STAFF" />
               </MappingFragment>

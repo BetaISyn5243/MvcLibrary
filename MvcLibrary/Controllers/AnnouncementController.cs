@@ -9,19 +9,24 @@ namespace MvcLibrary.Controllers
 {
     public class AnnouncementController : Controller
     {
+
         // GET: Announcement
         DBLIBRARYEntities1 db = new DBLIBRARYEntities1 ();
+        [Authorize]
+
         public ActionResult Index()
         {
             var values = db.TBLANNOUNCEMENTS.ToList ();
             return View(values);
         }
+
         public ActionResult NewAnnouncements(TBLANNOUNCEMENT p)
         {
             db.TBLANNOUNCEMENTS.Add (p);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
         public ActionResult DeleteAnnouncements(int id)
         {
             var announcement = db.TBLANNOUNCEMENTS.Find(id);
@@ -29,12 +34,14 @@ namespace MvcLibrary.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
         public ActionResult DetailAnnouncements(TBLANNOUNCEMENT p)
         {
 
             var values = db.TBLANNOUNCEMENTS.Find(p.ID);
             return View("DetailAnnouncements", values);
         }
+
         public ActionResult UpdateAnnouncements(TBLANNOUNCEMENT p)
         {
             var values = db.TBLANNOUNCEMENTS.Find(p.ID);

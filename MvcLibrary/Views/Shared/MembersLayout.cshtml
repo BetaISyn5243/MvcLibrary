@@ -84,11 +84,10 @@
                         <ul class="navbar-nav pull-right">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Erkan Çelik
+                                    @HttpContext.Current.User.Identity.Name
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                                    <li><a class="dropdown-item" href="#">Exit</a></li>
+                                    <li><a class="dropdown-item" href="/Auth/Login/">Exit</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -98,19 +97,18 @@
         </div>
     </nav>
     <div class="sidebar shadow p-3 mb-5 bg-body rounded">
-        <a href="/Panel/Index/"><i class="glyphicon glyphicon-home"></i> &nbsp; Profilim</a>
-        <a href="/Message/Index/"><i class="glyphicon glyphicon-home"></i> &nbsp; Gelen Mesajlar</a>
-        <a href="/Message/Sended/"><i class="glyphicon glyphicon-home"></i> &nbsp; Giden Mesajlar</a>
-        <a href="/Message/Send/"><i class="glyphicon glyphicon-home"></i> &nbsp; Yeni Mesaj</a>
-        <a href="/Panel/Announcement/"><i class="glyphicon glyphicon-home"></i> &nbsp; Duyurular</a>
-        <a href="/Panel/MyBooks/"><i class="glyphicon glyphicon-home"></i> &nbsp; Kitaplarım</a>
-        <a href="/Showcase/Index/"><i class="glyphicon glyphicon-home"></i> &nbsp; Vitrin</a>
-        <a href="/Panel/LogOut/"><i class="glyphicon glyphicon-home"></i> &nbsp; Çıkış Yap</a>
+        <a href="/Student/Panel/"><i class="glyphicon glyphicon-home"></i> &nbsp; Profilim</a>
+        <a href="/Student/Message/"><i class="glyphicon glyphicon-home"></i> &nbsp; Giden Mesajlar</a>
+        <a href="/Student/Message/Sended/"><i class="glyphicon glyphicon-home"></i> &nbsp; Gelen Mesajlar</a>
+        <a href="/Student/Message/Send/"><i class="glyphicon glyphicon-home"></i> &nbsp; Yeni Mesaj</a>
+        <a href="/Student/Panel/Announcement/"><i class="glyphicon glyphicon-home"></i> &nbsp; Duyurular</a>
+        <a href="/Student/Panel/MyBooks/"><i class="glyphicon glyphicon-home"></i> &nbsp; Kitaplarım</a>
+        <a href="/Showcase/"><i class="glyphicon glyphicon-home"></i> &nbsp; Vitrin</a>
     </div>
     <div class="main shadow mb-5 rounded">
         @RenderBody()
     </div>
     <script>
-   
-</body>
-</html>
+
+</body >
+</html >

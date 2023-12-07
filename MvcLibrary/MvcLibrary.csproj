@@ -276,6 +276,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Auth\Register.cshtml" />
+    <Content Include="Views\Auth\Login.cshtml" />
     <None Include="Views\Shared\MembersLayout.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -310,8 +312,6 @@
     <Content Include="Views\Borrow\Borrowed.cshtml" />
     <Content Include="Views\Borrow\Return.cshtml" />
     <Content Include="Views\Showcase\Index.cshtml" />
-    <Content Include="Views\Auth\Login.cshtml" />
-    <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Panel\Announcement.cshtml" />
     <Content Include="Views\Panel\Index.cshtml" />
     <Content Include="Views\Panel\MyBooks.cshtml" />
@@ -324,7 +324,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
