@@ -25,7 +25,6 @@ namespace MvcLibrary.Models.Entity
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TBLABOUT> TBLABOUTs { get; set; }
         public virtual DbSet<TBLACTION> TBLACTIONs { get; set; }
         public virtual DbSet<TBLANNOUNCEMENT> TBLANNOUNCEMENTS { get; set; }

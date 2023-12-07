@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-namespace MvcLibrary.Controllers
+namespace Admin.Controllers
 {
+
     public class BookController : Controller
     {
-        // GET: Book
         DBLIBRARYEntities1 db = new DBLIBRARYEntities1();
         public ActionResult Index(string p)
         {

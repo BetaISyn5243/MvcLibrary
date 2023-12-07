@@ -37,7 +37,8 @@ namespace MvcLibrary.Controllers
                 //TempData["PASSWORD"] = values.PASSWORD.ToString();
                 //TempData["PHOTO"] = values.PHOTO.ToString();
                 //TempData["SCHOOL"] = values.SCHOOL.ToString();
-                return RedirectToAction("Index","Panel");
+                if(values.ISADMIN != null && (bool)values.ISADMIN) return RedirectToAction("Index","Home");
+                return RedirectToAction("Index","Memeber");
             }
             return View();
         }

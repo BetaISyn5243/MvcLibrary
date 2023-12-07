@@ -4,17 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBKUTUPHANEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
+    <Schema Namespace="DBLIBRARYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TBLABOUT">
           <Key>
             <PropertyRef Name="ID" />
@@ -106,6 +96,7 @@
           <Property Name="PHOTO" Type="varchar" MaxLength="250" />
           <Property Name="PHONE" Type="varchar" MaxLength="20" />
           <Property Name="SCHOOL" Type="varchar" MaxLength="100" />
+          <Property Name="ISADMIN" Type="bit" />
         </EntityType>
         <EntityType Name="TBLMESSAGES">
           <Key>
@@ -220,8 +211,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBKUTUPHANEModelStoreContainer">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="DBLIBRARYModelStoreContainer">
           <EntitySet Name="TBLABOUT" EntityType="Self.TBLABOUT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLACTION" EntityType="Self.TBLACTION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLANNOUNCEMENTS" EntityType="Self.TBLANNOUNCEMENTS" Schema="dbo" store:Type="Tables" />
@@ -263,21 +253,10 @@
             <End Role="TBLBOOK" EntitySet="TBLBOOK" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBLIBRARYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="TBLABOUT">
           <Key>
             <PropertyRef Name="ID" />
@@ -380,6 +359,7 @@
           <Property Name="SCHOOL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TBLACTIONs" Relationship="Self.FK_TBLHAREKET_TBLUYELER" FromRole="TBLMEMBERS" ToRole="TBLACTION" />
           <NavigationProperty Name="TBLPENALTies" Relationship="Self.FK_TBLCEZALAR_TBLUYELER" FromRole="TBLMEMBERS" ToRole="TBLPENALTY" />
+          <Property Name="ISADMIN" Type="Boolean" />
         </EntityType>
         <EntityType Name="TBLMESSAGE">
           <Key>
@@ -498,7 +478,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DBLIBRARYEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TBLABOUTs" EntityType="Self.TBLABOUT" />
           <EntitySet Name="TBLACTIONs" EntityType="Self.TBLACTION" />
           <EntitySet Name="TBLANNOUNCEMENTS" EntityType="Self.TBLANNOUNCEMENT" />
@@ -545,18 +524,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBKUTUPHANEModelStoreContainer" CdmEntityContainer="DBLIBRARYEntities1">
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DBLIBRARYModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="DBLIBRARYModelStoreContainer" CdmEntityContainer="DBLIBRARYEntities1">
           <EntitySetMapping Name="TBLABOUTs">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLABOUT">
               <MappingFragment StoreEntitySet="TBLABOUT">
@@ -646,6 +614,7 @@
           <EntitySetMapping Name="TBLMEMBERS">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLMEMBER">
               <MappingFragment StoreEntitySet="TBLMEMBERS">
+                <ScalarProperty Name="ISADMIN" ColumnName="ISADMIN" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />

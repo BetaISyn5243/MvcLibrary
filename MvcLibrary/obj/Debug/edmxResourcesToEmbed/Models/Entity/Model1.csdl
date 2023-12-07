@@ -1,15 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DBLIBRARYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="TBLABOUT">
     <Key>
       <PropertyRef Name="ID" />
@@ -112,6 +102,7 @@
     <Property Name="SCHOOL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="TBLACTIONs" Relationship="Self.FK_TBLHAREKET_TBLUYELER" FromRole="TBLMEMBERS" ToRole="TBLACTION" />
     <NavigationProperty Name="TBLPENALTies" Relationship="Self.FK_TBLCEZALAR_TBLUYELER" FromRole="TBLMEMBERS" ToRole="TBLPENALTY" />
+    <Property Name="ISADMIN" Type="Boolean" />
   </EntityType>
   <EntityType Name="TBLMESSAGE">
     <Key>
@@ -230,7 +221,6 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="DBLIBRARYEntities1" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="TBLABOUTs" EntityType="Self.TBLABOUT" />
     <EntitySet Name="TBLACTIONs" EntityType="Self.TBLACTION" />
     <EntitySet Name="TBLANNOUNCEMENTS" EntityType="Self.TBLANNOUNCEMENT" />

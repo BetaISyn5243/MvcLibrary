@@ -5,8 +5,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace MvcLibrary.Controllers
 {
+    [RouteArea("Panel")]
+    [RoutePrefix("Panel")]
     public class MessageController : Controller
     {
         DBLIBRARYEntities1 db = new DBLIBRARYEntities1();

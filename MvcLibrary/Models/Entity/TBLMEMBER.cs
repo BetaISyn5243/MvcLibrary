@@ -30,6 +30,7 @@ namespace MvcLibrary.Models.Entity
         public string PHOTO { get; set; }
         public string PHONE { get; set; }
         public string SCHOOL { get; set; }
+        public Nullable<bool> ISADMIN { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBLACTION> TBLACTIONs { get; set; }

@@ -1,17 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DBKUTUPHANEModelStoreContainer" CdmEntityContainer="DBLIBRARYEntities1">
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="DBLIBRARYModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+  <EntityContainerMapping StorageEntityContainer="DBLIBRARYModelStoreContainer" CdmEntityContainer="DBLIBRARYEntities1">
     <EntitySetMapping Name="TBLABOUTs">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLABOUT">
         <MappingFragment StoreEntitySet="TBLABOUT">
@@ -101,6 +90,7 @@
     <EntitySetMapping Name="TBLMEMBERS">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLMEMBER">
         <MappingFragment StoreEntitySet="TBLMEMBERS">
+          <ScalarProperty Name="ISADMIN" ColumnName="ISADMIN" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
           <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />

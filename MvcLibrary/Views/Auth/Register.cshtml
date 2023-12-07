@@ -1,123 +1,131 @@
-﻿@model MvcLibrary.Models.Entity.TBLMEMBER
+﻿
 @{
     Layout = null;
 }
 
-<!--A Design by W3layouts
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Mvc5 Kütüphane Kayıt Ol</title>
-    <!-- custom-theme -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Course Register Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-    <script type="application/x-javascript">
-        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-               function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <!-- //custom-theme -->
-    <!-- css files -->
-    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=devanagari,latin-ext" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
-    <link href="~/webregister/css/style.css" type="text/css" rel="stylesheet" media="all">
-    <!-- //css files -->
 
-    <link rel="stylesheet" href="~/webregister/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+<head>
+    <title>Mvc5 Library</title>
+    <!-- meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Art Sign Up Form Responsive Widget, Audio and Video players, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates,
+		Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+    <!-- fontawesome css -->
+    <link href="~/weblogin/css/fontawesome-all.css" rel="stylesheet" />
+    <!-- google fonts-->
+    <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <!-- /google fonts-->
 
 </head>
-<!-- body starts -->
-<body>
-    <!-- section -->
-    <section class="register">
-        <div class="register-full">
-            <div class="register-left">
-                <div class="register">
-                    <div class="logo">
-                        <a href="#"><span class="fa fa-graduation-cap" aria-hidden="true"></span></a>
+
+
+<body class="h-100">
+    <!-- Section: Design Block -->
+    <section class="h-100">
+        <!-- Jumbotron -->
+        <div class="px-4 py-5 px-md-5 text-center text-lg-start h-100" style="background-color: hsl(0, 0%, 96%)">
+            <div class="container h-100 d-flex align-items-center">
+                <div class="row gx-lg-5 align-items-center justify-content-between">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <h1 class="my-5 display-3 fw-bold ls-tight">
+                            Bilgi Dünyanızı Genişletin <br />
+                            <span style="color:#1ABC9C">Kütüphane Hizmetlerimizle</span>
+                        </h1>
+                        <p style="color: hsl(217, 10%, 50.8%)">
+                            Zengin literatür ve sınırsız bilgiyle dolu bir dünyaya adım atın. Kütüphane uygulamamız, geniş bir kitap, makale ve kaynak koleksiyonuna sorunsuz erişim sağlamak amacıyla tasarlanmıştır. Öğrenci, araştırmacı ya da tutkulu bir okur olun, platformumuz keşfetmeniz, öğrenmeniz ve keşfetmeniz için kullanıcı dostu bir deneyim sunar.
+                        </p>
                     </div>
-                    <h1>Mvc5 Kütüphane Yönetim Sistemi</h1>
-                    <p>
-                        Kütüphanemize hoşgeldiniz, kayıt olmak için sağ tarafta bulunan paneldeki bilgileri eksiksiz bir şekilde girerek kaydınızı gerçekleştirebilirsiniz.
-                    </p>
-                    <div class="content3">
-                        <ul>
-                            <li><a class="" href="/Auth/Login/"> Giriş Yap</a></li>
-                            <li><a class="read" href="/Showcase/Index/"> Siteye Dön</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="register-right">
-                <div class="register-in">
-                    <h2><span class="fa fa-pencil"></span> Kayıt Paneli</h2>
-                    <div class="register-form">
-                        <form action="#" method="post">
-                            <div class="fields-grid">
-                                <div class="styled-input agile-styled-input-top">
-                                    <input type="text" name="NAME" required="">
-                                    <label>Adınız</label>
-                                    <span></span>
-                                </div>
-                                <div class="styled-input agile-styled-input-top">
-                                    <input type="text" name="SURNAME" required="">
-                                    <label>Soyadınız</label>
-                                    <span></span>
-                                </div>
-                                <div class="styled-input">
-                                    <input type="email" name="MAIL" required="">
-                                    <label>Email</label>
-                                    <span></span>
-                                </div>
-                                <div class="styled-input">
-                                    <input type="password" name="USERNAME" required="">
-                                    <label>Kullanıcı Adı</label>
-                                    <span></span>
-                                </div>
-                                <div class="styled-input">
-                                    <input type="password" name="PASSWORD" required="">
-                                    <label>Şifre</label>
-                                    <span></span>
-                                </div>
-                                <div class="styled-input">
-                                    <input type="password" name="PHONE" required="">
-                                    <label>Telefon</label>
-                                    <span></span>
-                                </div>
-                                <div class="styled-input agile-styled-input-top">
-                                    <select id="category2" required="" name="SCHOOL">
-                                        <option value="">Okulunuzu Seçin*</option>
-                                        <option value="">Fırat Üniversitesi</option>
-                                        <option value="">Gazi Üniversitesi</option>
-                                        <option value="">Akdeniz Üniversitesi</option>
-                                        <option value="">Çukurova Üniversitesi</option>
-                                        <option value="">Uludağ Üniversitesi</option>
-                                        <option value="">Karabük Üniversitesi</option>
-                                        <option value="">Anadolu Üniversitesi</option>
-                                    </select>
-                                    <span></span>
-                                </div>
-                                <div class="clear"> </div>
-                                <label class="checkbox"><input type="checkbox" name="checkbox" checked><i></i>Şartları okudum <a href="#">kabul ediyorum</a></label>
+
+
+                    <div class="col-lg-5 mb-5 mb-lg-0">
+                        <div class="card">
+                            <div class="card-body py-5 px-md-5">
+                                <form>
+                                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <label class="form-label" for="NAME">Adınız</label>
+                                                <input type="text" id="NAME" name="NAME" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <label class="form-label" for="SURNAME">Soyadınız</label>
+                                                <input type="text" id="SURNAME" name="SURNAME" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Email input -->
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="MAIL">E-Posta Adresiniz</label>
+                                        <input type="email" id="MAIL" name="MAIL" class="form-control" />
+                                    </div>
+
+                                    <!-- UserName input -->
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="USERNAME">Kullanıcı Adınız</label>
+                                        <input type="text" id="USERNAME" name="USERNAME" class="form-control" />
+                                    </div>
+
+                                    <!-- Şifre input -->
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="PASSWORD">Şifreniz</label>
+                                        <input type="password" id="PASSWORD" name="PASSWORD" class="form-control" />
+                                    </div>
+
+                                    <!-- Telefon input -->
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="PHONE">Telefon Numaranız</label>
+                                        <input type="number" id="PHONE" name="PHONE" class="form-control" />
+                                    </div>
+
+                                    <!-- School input -->
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="SCHOOL">Okulunuz*</label>
+                                        <select class="form-select p-3" id="SCHOOL" required="" name="SCHOOL">
+                                            <option value="" selected disabled>Seçiniz*</option>
+                                            <option value="Fırat Üniversitesi">Fırat Üniversitesi</option>
+                                            <option value="Gazi Üniversitesi">Gazi Üniversitesi</option>
+                                            <option value="Akdeniz Üniversitesi">Akdeniz Üniversitesi</option>
+                                            <option value="Çukurova Üniversitesi">Çukurova Üniversitesi</option>
+                                            <option value="Uludağ Üniversitesi">Uludağ Üniversitesi</option>
+                                            <option value="Karabük Üniversitesi">Karabük Üniversitesi</option>
+                                            <option value="Anadolu Üniversitesi">Anadolu Üniversitesi</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Checkbox -->
+                                    <div class="form-check d-flex justify-content-start mb-4">
+                                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+                                        <label class="form-check-label" for="form2Example33">
+                                            Şartları okudum kabul ediyorum.
+                                        </label>
+                                    </div>
+
+                                    <!-- Submit button -->
+                                    <button style="color:white;background-color:#1ABC9C" type="submit" class="btn btn-primary btn-block mb-4">
+                                        Kayıt Ol
+                                    </button>
+                                    <div class="d-flex justify-content-center">
+                                        <p class="w3l-register-p">Zaten Hesabınız var mı?<a href="/Auth/Login" class="register"> Giriş YAP</a></p>
+
+                                    </div>
+                                </form>
                             </div>
-                            <input type="submit" value="Kayıt Ol">
-                        </form>
+                        </div>
                     </div>
                 </div>
-                <div class="clear"> </div>
             </div>
-            <div class="clear"> </div>
         </div>
-        <!-- copyright -->
-        <p class="agile-copyright">© 2020 Tüm hakları saklıdır | Design by <a href="https://w3layouts.com/" target="_blank">W3layouts</a></p>
-        <!-- //copyright -->
     </section>
-    <!-- //section -->
 </body>
-<!-- //body ends -->
 </html>
