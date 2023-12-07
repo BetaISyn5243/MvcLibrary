@@ -7,9 +7,13 @@ using System.Web.Mvc;
 
 namespace MvcLibrary.Controllers
 {
+    [RoutePrefix("Admin")]
+
     public class BorrowController : Controller
     {
         DBLIBRARYEntities1 db = new DBLIBRARYEntities1();
+        [Authorize]
+        [Route("Borrow")]
 
         // GET: Borrow
         public ActionResult Index()
@@ -19,6 +23,7 @@ namespace MvcLibrary.Controllers
             return View(values);
         }
         [HttpGet]
+        [Route("Borrow/Borrow")]
         public ActionResult Borrow()
         {
             ViewBag.memberList =  ( from x in db.TBLMEMBERS.ToList() select new SelectListItem { Text= x.NAME+" "+x.SURNAME ,Value= x.ID.ToString() }).ToList();
@@ -27,22 +32,25 @@ namespace MvcLibrary.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Borrow(
-            TBLACTION p)
+        [Route("Borrow/Borrow")]
+        public ActionResult Borrow(TBLACTION p)
         {
-            if (db.TBLBOOKs.Find(p.BOOK).STATUS == false) return View();
+            if (db.TBLBOOKs.Find(p.BOOK).STATUS == true) return View();
             p.ISCOMPLATED = false;
             db.TBLBOOKs.Find(p.BOOK).STATUS = false;
             db.TBLACTIONs.Add(p);
             db.SaveChanges();
             return View();
         }
+        [Route("Borrow/Borrowed")]
+
         public ActionResult Borrowed()
         {
             var values = db.TBLACTIONs.ToList();
             return View(values);
         }
         [HttpGet]
+        [Route("Borrow/Return/{id}")]
         public ActionResult Return(
             int id)
         {   
@@ -50,6 +58,7 @@ namespace MvcLibrary.Controllers
             return View(values);
         }
         [HttpPost]
+        [Route("Borrow/Return")]
         public ActionResult Return(
             TBLACTION b)
         {

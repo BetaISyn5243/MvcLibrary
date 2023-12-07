@@ -12,6 +12,7 @@
     <EntitySetMapping Name="TBLACTIONs">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLACTION">
         <MappingFragment StoreEntitySet="TBLACTION">
+          <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="BOOK" ColumnName="BOOK" />
           <ScalarProperty Name="MEMBER" ColumnName="MEMBER" />
@@ -35,6 +36,7 @@
     <EntitySetMapping Name="TBLAUTHORs">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLAUTHOR">
         <MappingFragment StoreEntitySet="TBLAUTHOR">
+          <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
           <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
@@ -90,6 +92,7 @@
     <EntitySetMapping Name="TBLMEMBERS">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLMEMBER">
         <MappingFragment StoreEntitySet="TBLMEMBERS">
+          <ScalarProperty Name="ISDELETE" ColumnName="ISDELETE" />
           <ScalarProperty Name="ISADMIN" ColumnName="ISADMIN" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
@@ -130,6 +133,7 @@
     <EntitySetMapping Name="TBLSTAFFs">
       <EntityTypeMapping TypeName="DBLIBRARYModel.TBLSTAFF">
         <MappingFragment StoreEntitySet="TBLSTAFF">
+          <ScalarProperty Name="ISDELETED" ColumnName="ISDELETED" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="STAFF" ColumnName="STAFF" />
         </MappingFragment>

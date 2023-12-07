@@ -6,10 +6,13 @@ using System.Web;
 using System.Web.Mvc;
 namespace Admin.Controllers
 {
-
+    [RoutePrefix("Admin")]
     public class BookController : Controller
     {
         DBLIBRARYEntities1 db = new DBLIBRARYEntities1();
+        [Authorize]
+
+        [Route("Book")]
         public ActionResult Index(string p)
         {
             var books = from k in db.TBLBOOKs select k;
@@ -19,7 +22,10 @@ namespace Admin.Controllers
             }
             return View(books.Where(b=>b.ISDELETED==false).ToList());
         }
+
         [HttpGet]
+        [Route("Book/AddBook")]
+
         public ActionResult AddBook()
         {
             List<SelectListItem> value1 = (from i in db.TBLCATEGORies.ToList() select new SelectListItem { Text = i.NAME, Value = i.ID.ToString() }).ToList();
@@ -30,6 +36,8 @@ namespace Admin.Controllers
         }
 
         [HttpPost]
+        [Route("Book/AddBook")]
+
         public ActionResult AddBook(TBLBOOK p)
         {
             p.ISDELETED = false;
@@ -40,6 +48,7 @@ namespace Admin.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [Route("Book/DeleteBook/{id}")]
         public ActionResult DeleteBook(int id)
         {
             var book = db.TBLBOOKs.Find(id);
@@ -47,7 +56,7 @@ namespace Admin.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        [Route("Book/GetBook/{id}")]
         public ActionResult GetBook(int id)
         {
             List<SelectListItem> value1 = (from i in db.TBLCATEGORies.ToList() select new SelectListItem { Text = i.NAME, Value = i.ID.ToString() }).ToList();
@@ -57,6 +66,8 @@ namespace Admin.Controllers
             var book = db.TBLBOOKs.Find(id);
             return View("GetBook", book);
         }
+        [Route("Book/UpdateBook/{id}")]
+
         public ActionResult UpdateBook(TBLBOOK p)
         {
             var book = db.TBLBOOKs.Find(p.ID);

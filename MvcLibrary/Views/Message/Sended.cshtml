@@ -1,15 +1,15 @@
 ﻿@using MvcLibrary.Models.Entity
 @model List<TBLMESSAGE>
 @{
-    /**/
-    ViewBag.Title = "Sended";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/MembersLayout.cshtml";
 }
 
-<h2>Giden Mesajlar Sayfası</h2>
+<h2>Gelen Mesajlar Sayfası</h2>
 <br />
 <table class="table table-bordered">
     <tr>
+        <th>Gönderen</th>
         <th>Alıcı</th>
         <th>Konu</th>
         <th>Mesaj</th>
@@ -18,6 +18,7 @@
     @foreach (var x in Model)
     {
         <tr>
+            <td>@x.SENDER</td>
             <td>@x.RECEIVER</td>
             <td>@x.TOPIC</td>
             <td>@x.CONTENTS</td>
@@ -25,4 +26,3 @@
         </tr>
     }
 </table>
-

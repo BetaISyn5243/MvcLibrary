@@ -47,7 +47,8 @@
                     <div class="col-lg-5 mb-5 mb-lg-0">
                         <div class="card">
                             <div class="card-body py-5 px-md-5">
-                                <form>
+                                @using (Html.BeginForm("Register", "Auth", FormMethod.Post, new { @class = "needs-validation", @novalidate = "novalidate" }))
+                                {
                                     <!-- 2 column grid layout with text inputs for the first and last names -->
                                     <div class="row">
                                         <div class="col-md-6 mb-4">
@@ -119,8 +120,8 @@
                                         <p class="w3l-register-p">Zaten Hesabınız var mı?<a href="/Auth/Login" class="register"> Giriş YAP</a></p>
 
                                     </div>
-                                </form>
-                            </div>
+                                }
+                                </div>
                         </div>
                     </div>
                 </div>

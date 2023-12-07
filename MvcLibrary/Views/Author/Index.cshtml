@@ -5,17 +5,16 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h2>Authors</h2>
+<h2>Yazarlar</h2>
 
 <table class="table table-bordered">
     <tr>
         <td>ID</td>
-        <td>NAME</td>
-        <td>SURNAME</td>
-        <td>DETAIL</td>
-        <td>DELETE</td>
-        <td>UPDATE</td>
-        <td>AUTHOR'S BOOKS</td>
+        <td>Ad</td>
+        <td>Soyad</td>
+        <td>Detay</td>
+        <td>Güncelle</td>
+        <td>Diğer Kitaplar</td>
     </tr>
     @foreach(var y in Model)
             {
@@ -24,16 +23,11 @@
                     <td>@y.NAME</td>
                     <td>@y.SURNAME</td>
                     <td>@y.DETAIL</td>
-                    <td>
-                        
-                    @Html.ActionLink("Delete", "DeleteAuthor", new {id = y.ID},new {@class="btn btn-danger", onclick="return confirm('Are You Sure?')"})
-                    
-                    </td>
-                    <td><a href="/Author/GetAuthor/@y.ID" class="btn btn-success">Update</a></td>
-                    <td><a href="/Author/GetAuthorsBooks/@y.ID" class="btn btn-success" style="background-color:lightcoral">Author's books</a></td>
+                    <td><a href="/Admin/Author/GetAuthor/@y.ID" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/Admin/Author/GetAuthorsBooks/@y.ID" class="btn btn-success" style="background-color:lightcoral">Diğer Kitaplar</a></td>
                     
                 </tr>
             }
 </table>
 
-<a class="btn btn-primary" href="/Author/AddAuthor">Add New Author</a>
+<a class="btn btn-primary" href="/Admin/Author/AddAuthor">Yazar Ekle</a>

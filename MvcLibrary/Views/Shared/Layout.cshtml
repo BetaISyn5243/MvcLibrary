@@ -18,7 +18,7 @@
 
 
         .sidebar {
-            margin:100px 21px 16px 16px;
+            margin: 100px 21px 16px 16px;
             padding: 10px;
             width: 256px;
             position: fixed;
@@ -42,12 +42,13 @@
                 .sidebar a:hover {
                     color: #0094ff;
                 }
-               
+
 
         .navbar {
             position: fixed;
             z-index: 5;
         }
+
         .main {
             background-color: white;
             margin-left: 292px; /* Same as the width of the sidenav */
@@ -72,7 +73,7 @@
     <!-- Just an image -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light shadow p-3 mb-5 bg-body rounded">
         <div class="container-fluid px-5 d-flex justify-content-between">
-            <a class="navbar-brand" href="#">MY Library</a>
+            <a class="navbar-brand" href="#">Kütüphane Uygulaması</a>
             <div class="d-flex align-items-center">
                 <img src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp" alt="Avatar" width="40" height="40" class="rounded-circle me-2">
                 <div>
@@ -83,11 +84,10 @@
                         <ul class="navbar-nav pull-right">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Erkan Çelik
+                                    @HttpContext.Current.User.Identity.Name
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                                    <li><a class="dropdown-item" href="#">Exit</a></li>
+                                    <li><a class="dropdown-item" href="/Auth/Login/">Exit</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -96,17 +96,17 @@
             </div>
         </div>
     </nav>
-        <div class="sidebar shadow p-3 mb-5 bg-body rounded">
-            <a href="/Home/Index"><i class="glyphicon glyphicon-home"></i> &nbsp; Anasayfa</a>
-            <a href="/Category/Index"><i class="glyphicon glyphicon-list"></i> &nbsp; Kategoriler</a>
-            <a href="/Book/Index"><i class="glyphicon glyphicon-book"></i> &nbsp; Kitaplar</a>
-            <a href="/Author/Index"><i class="glyphicon glyphicon-pencil"></i> &nbsp; Yazarlar</a>
-            <a href="/Member/Index"><i class="glyphicon glyphicon-user"></i> &nbsp; Kullanıcılar</a>
-            <a href="/Staff/Index"><i class="glyphicon glyphicon-tower"></i> &nbsp; Görevliler</a>
-            <a href="/Borrow/Borrowed"><i class="glyphicon glyphicon-circle-arrow-right"></i> &nbsp; Ödünç Alınan Kitaplar</a>
-            <a href="/Borrow/Borrow"><i class="glyphicon glyphicon-circle-arrow-right"></i> &nbsp; Kitap Ödünç Al</a>
-            <a href="/Borrow/Index"><i class="glyphicon glyphicon-circle-arrow-left"></i> &nbsp; Geri Getirilen Kitaplar</a>
-        </div>
+    <div class="sidebar shadow p-3 mb-5 bg-body rounded">
+        <a href="/Admin/Home/"><i class="glyphicon glyphicon-home"></i> &nbsp; Anasayfa</a>
+        <a href="/Admin/Category/"><i class="glyphicon glyphicon-list"></i> &nbsp; Kategoriler</a>
+        <a href="/Admin/Book/"><i class="glyphicon glyphicon-book"></i> &nbsp; Kitaplar</a>
+        <a href="/Admin/Author/"><i class="glyphicon glyphicon-pencil"></i> &nbsp; Yazarlar</a>
+        <a href="/Admin/Member/"><i class="glyphicon glyphicon-user"></i> &nbsp; Kullanıcılar</a>
+        <a href="/Admin/Staff/"><i class="glyphicon glyphicon-tower"></i> &nbsp; Görevliler</a>
+        <a href="/Admin/Borrow/"><i class="glyphicon glyphicon-circle-arrow-right"></i> &nbsp; Ödünç Alınan Kitaplar</a>
+        <a href="/Admin/Borrow/Borrow"><i class="glyphicon glyphicon-circle-arrow-right"></i> &nbsp; Kitap Ödünç Al</a>
+        <a href="/Admin/Borrow/Borrowed"><i class="glyphicon glyphicon-circle-arrow-left"></i> &nbsp; Geri Getirilen Kitaplar</a>
+    </div>
     <div class="main shadow mb-5 rounded">
         @RenderBody()
     </div>

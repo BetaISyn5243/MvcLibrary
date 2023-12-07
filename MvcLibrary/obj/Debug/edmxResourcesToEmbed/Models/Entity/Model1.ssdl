@@ -18,6 +18,7 @@
     <Property Name="BORROWDATE" Type="smalldatetime" />
     <Property Name="RETURNDATE" Type="smalldatetime" />
     <Property Name="ISCOMPLATED" Type="bit" />
+    <Property Name="ISDELETED" Type="bit" />
   </EntityType>
   <EntityType Name="TBLANNOUNCEMENTS">
     <Key>
@@ -36,6 +37,7 @@
     <Property Name="NAME" Type="varchar" MaxLength="30" />
     <Property Name="SURNAME" Type="varchar" MaxLength="30" />
     <Property Name="DETAIL" Type="varchar" MaxLength="1000" />
+    <Property Name="ISDELETE" Type="bit" />
   </EntityType>
   <EntityType Name="TBLBANK">
     <Key>
@@ -92,6 +94,7 @@
     <Property Name="PHONE" Type="varchar" MaxLength="20" />
     <Property Name="SCHOOL" Type="varchar" MaxLength="100" />
     <Property Name="ISADMIN" Type="bit" />
+    <Property Name="ISDELETE" Type="bit" />
   </EntityType>
   <EntityType Name="TBLMESSAGES">
     <Key>
@@ -121,6 +124,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="STAFF" Type="varchar" MaxLength="50" />
+    <Property Name="ISDELETED" Type="bit" />
   </EntityType>
   <Association Name="FK_TBLACTION_TBLSTAFF">
     <End Role="TBLSTAFF" Type="Self.TBLSTAFF" Multiplicity="0..1" />

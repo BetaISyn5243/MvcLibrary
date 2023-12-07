@@ -8,14 +8,14 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h2>Members</h2>
+<h2>Kullanıcılar</h2>
 
 @using (Html.BeginForm("Index", "Member", FormMethod.Get))
 {
 
     <div style="margin-bottom:15px;margin-top:15px;" class="row px-3">
         <div class="col-auto form-label align-self-center">
-            <b>Search Member With Name: </b>
+            <b>Adı ile ara: </b>
         </div>
         <div class="col-4">
             @Html.TextBox("p", null, new { @class = "form-control" })
@@ -30,18 +30,17 @@
 
 <table class="table table-bordered">
     <tr>
-        <th>Member ID</th>
-        <th>Member Name</th>
-        <th>Member Surname</th>
-        <th>Member Mail</th>
-        <th>Member Username</th>
-        <th>Member Password</th>
-        <th>Member Photo</th>
-        <th>Member Phone</th>
-        <th>Member School</th>
-        <th>Delete</th>
-        <th>Update</th>
-        <th>Book History</th>
+        <th>Kullanıcı ID</th>
+        <th>Kullanıcı Ad</th>
+        <th>Kullanıcı Soyad</th>
+        <th>Kullanıcı E-Posta</th>
+        <th>Kullanıcı Adı</th>
+        <th>Kullanıcı Şifre</th>
+        <th>Kullanıcı Telefon</th>
+        <th>Kullanıcı Okul</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Kitap Geçmişi</th>
     </tr>
 
     @foreach (var mbr in Model)
@@ -53,7 +52,6 @@
             <td>@mbr.MAIL</td>
             <td>@mbr.USERNAME</td>
             <td>@mbr.PASSWORD</td>
-            <td>@mbr.PHOTO</td>
             <td>@mbr.PHONE</td>
             <td>@mbr.SCHOOL</td>
             <td>
@@ -61,12 +59,12 @@
                 @Html.ActionLink("Delete", "DeleteMember", new { id = mbr.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Are You Sure?')" })
 
             </td>
-            <td><a href="/Member/GetMember/@mbr.ID" class="btn btn-success">Update</a></td>
-            <td><a href="/Member/GetMemberActions/@mbr.ID" class="btn btn-success">Get Book Actions</a></td>
+            <td><a href="/Admin/Member/GetMember/@mbr.ID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Admin/Member/GetMemberActions/@mbr.ID" class="btn btn-success">Kitap Geçmişi</a></td>
         </tr>
     }
 </table>
 @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new{page ,p=ViewBag.p}))
 
 
-<a href="/Member/AddMember" class="btn btn-primary">Add New Member</a>
+<a href="/Admin/Member/AddMember" class="btn btn-primary">Kullanıcı Ekle</a>

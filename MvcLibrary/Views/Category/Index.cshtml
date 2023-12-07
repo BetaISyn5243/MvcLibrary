@@ -6,14 +6,14 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h2>Categories</h2>
+<h2>Kategoriler</h2>
 
 <table class="table table-bordered">
     <tr>
-        <th>Categorie ID</th>
-        <th>Categorie Name</th>
-        <th>Delete</th>
-        <th>Update</th>
+        <th>Kategori ID</th>
+        <th>Kategori Name</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
     </tr>
     
     @foreach (var ctg in Model)
@@ -21,11 +21,11 @@
         <tr>
             <td>@ctg.ID</td>
             <td>@ctg.NAME</td>
-            <td><a href="/Category/DeleteCategory/@ctg.ID" class="btn btn-danger">Delete</a></td>
-            <td><a href="/Category/GetCategory/@ctg.ID" class="btn btn-success">Update</a></td>
+            <td><a href="/Admin/Category/DeleteCategory/@ctg.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Admin/Category/GetCategory/@ctg.ID" class="btn btn-success">Güncelle</a></td>
         </tr>
     }
 
 </table>
 
-<a href="/Category/AddCategory" class="btn btn-primary">Add New Category</a>
+<a href="/Admin/Category/AddCategory" class="btn btn-primary">Yeni Kategori Ekle</a>

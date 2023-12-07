@@ -37,8 +37,8 @@ namespace MvcLibrary.Controllers
                 //TempData["PASSWORD"] = values.PASSWORD.ToString();
                 //TempData["PHOTO"] = values.PHOTO.ToString();
                 //TempData["SCHOOL"] = values.SCHOOL.ToString();
-                if(values.ISADMIN != null && (bool)values.ISADMIN) return RedirectToAction("Index","Home");
-                return RedirectToAction("Index","Memeber");
+                if(values.ISADMIN != null && (bool)values.ISADMIN) return RedirectToAction("Index", "Admin/Home");
+                return RedirectToAction("Index","Student/Panel");
             }
             return View();
         }
@@ -50,7 +50,12 @@ namespace MvcLibrary.Controllers
         [HttpPost]
         public ActionResult Register(TBLMEMBER p)
         {
-            return View();
+            p.ISADMIN = false;
+            p.PHOTO = "";
+            db.TBLMEMBERS.Add(p);
+            db.SaveChanges();
+            return RedirectToAction("Login", "Auth");
+
         }
     }
 }

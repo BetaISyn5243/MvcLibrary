@@ -22,6 +22,7 @@
     <NavigationProperty Name="TBLPENALTies" Relationship="Self.FK_TBLCEZALAR_TBLHAREKET" FromRole="TBLACTION" ToRole="TBLPENALTY" />
     <NavigationProperty Name="TBLBOOK" Relationship="Self.FK_TBLHAREKET_TBLKITAP" FromRole="TBLACTION" ToRole="TBLBOOK" />
     <NavigationProperty Name="TBLMEMBER" Relationship="Self.FK_TBLHAREKET_TBLUYELER" FromRole="TBLACTION" ToRole="TBLMEMBERS" />
+    <Property Name="ISDELETED" Type="Boolean" />
   </EntityType>
   <EntityType Name="TBLANNOUNCEMENT">
     <Key>
@@ -41,6 +42,7 @@
     <Property Name="SURNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="DETAIL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="TBLBOOKs" Relationship="Self.FK_TBLKITAP_TBLYAZAR" FromRole="TBLAUTHOR" ToRole="TBLBOOK" />
+    <Property Name="ISDELETE" Type="Boolean" />
   </EntityType>
   <EntityType Name="TBLBANK">
     <Key>
@@ -103,6 +105,7 @@
     <NavigationProperty Name="TBLACTIONs" Relationship="Self.FK_TBLHAREKET_TBLUYELER" FromRole="TBLMEMBERS" ToRole="TBLACTION" />
     <NavigationProperty Name="TBLPENALTies" Relationship="Self.FK_TBLCEZALAR_TBLUYELER" FromRole="TBLMEMBERS" ToRole="TBLPENALTY" />
     <Property Name="ISADMIN" Type="Boolean" />
+    <Property Name="ISDELETE" Type="Boolean" />
   </EntityType>
   <EntityType Name="TBLMESSAGE">
     <Key>
@@ -135,6 +138,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="STAFF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="TBLACTIONs" Relationship="Self.FK_TBLACTION_TBLSTAFF" FromRole="TBLSTAFF" ToRole="TBLACTION" />
+    <Property Name="ISDELETED" Type="Boolean" />
   </EntityType>
   <Association Name="FK_TBLACTION_TBLSTAFF">
     <End Role="TBLSTAFF" Type="Self.TBLSTAFF" Multiplicity="0..1" />

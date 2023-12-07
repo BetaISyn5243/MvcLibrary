@@ -11,12 +11,12 @@
 
 <table class="table table-bordered">
     <tr>
-        <td>Process ID</td>
-        <td>Book Name</td>
-        <td>Member</td>
-        <td>Staff</td>
-        <td>Borrow Date</td>
-        <td>Return</td>
+        <td>İşlem ID</td>
+        <td>Kitap Adı</td>
+        <td>Kullanıcı</td>
+        <td>Görevli</td>
+        <td>Ödünç Alınma Tarihi</td>
+        <td>Teslim Edilme Tarihi</td>
         
 
     </tr>
@@ -30,7 +30,7 @@
             <td>@Convert.ToDateTime(y.BORROWDATE).ToShortDateString()</td>
 
            
-            <td><a href="/Borrow/Return?id=@y.ID" class="btn btn-success">Return The Book</a></td>
+            <td><a href="/Admin/Borrow/Return?id=@y.ID" class="btn btn-success">Teslim et</a></td>
         </tr>
     }
 </table>

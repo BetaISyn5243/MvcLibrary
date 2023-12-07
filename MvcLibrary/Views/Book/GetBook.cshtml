@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h2>GetBook</h2>
+<h2>Kitap</h2>
 
 
 @using (Html.BeginForm("UpdateBook", "Book", FormMethod.Post))
@@ -13,42 +13,42 @@
     <div class="form-group container-fluid p-3">
         <div class="row" style=" margin-top: 15px">
             <div class="col-12 p-2">
-                <label>Book ID</label>
+                <label>Kitap ID</label>
                 @Html.TextBoxFor(b => b.ID, new { @class = "form-control", @readonly = "readonly" })
             </div>
             <div class="col-12 p-2">
-                <label>Book Name</label>
+                <label>Kitap Adı</label>
                 @Html.TextBoxFor(b => b.NAME, new { @class = "form-control" })
             </div>
             <div class="col-4 p-2">
-                <label>Book Author</label>
+                <label>Kitap Yazarı</label>
                 @Html.DropDownListFor(b => b.TBLAUTHOR.ID, (List<SelectListItem>)ViewBag.val2, new { @class = "form-control" })
             </div>
             <div class="col-4 p-2">
-                <label>Book Category</label>
+                <label>Kitap Kategorisi</label>
                 @Html.DropDownListFor(b => b.TBLCATEGORY.ID, (List<SelectListItem>)ViewBag.val1, new { @class = "form-control" })
             </div>
             <div class="col-4 p-2">
-                <label>Book Publication Year</label>
+                <label>Kitap Yüklenme Tarihi</label>
                 @Html.TextBoxFor(b => b.PUBLICATIONYEAR, new { @class = "form-control" })
             </div>
             <div class="col-4 p-2">
-                <label>Book Publisher</label>
+                <label>Yükleyen</label>
                 @Html.TextBoxFor(b => b.PRINTINGHOUSE, new { @class = "form-control" })
             </div>
             <div class="col-4 p-2">
-                <label>Book Page Count</label>
+                <label>Sayfa Sayısı</label>
                 @Html.TextBoxFor(b => b.PAGE, new { @class = "form-control" })
             </div>
             <div class="col-4 p-2">
-                <label>Book Status</label>
+                <label>Durum</label>
                 @Html.TextBoxFor(b => b.STATUS, new { @class = "form-control" })
             </div>
 
         </div>
         <div class="row pt-4">
             <div class="col-2">
-                <button class="btn btn-warning">Update Book</button>
+                <button class="btn btn-warning">Güncelle</button>
             </div>
         </div>
 

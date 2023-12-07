@@ -4,13 +4,14 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<form class="form-group" method="post">
-    <div></div>
-    <div style="margin-top:15px">
-        <label>Category Name</label>
-        <input type="text" class="form-control" name="NAME" />
-    </div>
-    <div style="margin-top:15px">
-        <button class="btn btn-info" id="add-Button">Add Category</button>
-    </div>
-</form>
+@using (Html.BeginForm("AddCategory", "Admin/Category", FormMethod.Post, new { @class = "needs-validation", @novalidate = "novalidate" }))
+{
+<div></div>
+<div style="margin-top:15px">
+    <label>Kategori Adı</label>
+    <input type="text" class="form-control" name="NAME" />
+</div>
+<div style="margin-top:15px">
+    <button class="btn btn-info" id="add-Button">Kategori Ekle</button>
+</div>
+}

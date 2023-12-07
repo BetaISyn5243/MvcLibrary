@@ -9,6 +9,7 @@ namespace MvcLibrary.Controllers
 {
     public class ValuesController1 : ApiController
     {
+        [Authorize]
         // GET api/<controller>
         public IEnumerable<string> Get()
         {
