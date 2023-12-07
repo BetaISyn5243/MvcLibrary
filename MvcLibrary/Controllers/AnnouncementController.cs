@@ -16,7 +16,7 @@ namespace MvcLibrary.Controllers
             var values = db.TBLANNOUNCEMENTS.ToList ();
             return View(values);
         }
-        public ActionResult NewAnnouncements(TBLANNOUNCEMENTS p)
+        public ActionResult NewAnnouncements(TBLANNOUNCEMENT p)
         {
             db.TBLANNOUNCEMENTS.Add (p);
             db.SaveChanges();
@@ -29,13 +29,13 @@ namespace MvcLibrary.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        public ActionResult DetailAnnouncements(TBLANNOUNCEMENTS p)
+        public ActionResult DetailAnnouncements(TBLANNOUNCEMENT p)
         {
 
             var values = db.TBLANNOUNCEMENTS.Find(p.ID);
             return View("DetailAnnouncements", values);
         }
-        public ActionResult UpdateAnnouncements(TBLANNOUNCEMENTS p)
+        public ActionResult UpdateAnnouncements(TBLANNOUNCEMENT p)
         {
             var values = db.TBLANNOUNCEMENTS.Find(p.ID);
             values.CATEGORY = p.CATEGORY;

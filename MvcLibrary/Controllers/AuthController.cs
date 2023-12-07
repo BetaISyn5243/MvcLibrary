@@ -23,7 +23,7 @@ namespace MvcLibrary.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(TBLMEMBERS p)
+        public ActionResult Login(TBLMEMBER p)
         {   
             var values = db.TBLMEMBERS.FirstOrDefault(x=>(x.MAIL ==p.MAIL)&&x.PASSWORD==p.PASSWORD);
             if (values != null)
@@ -37,7 +37,8 @@ namespace MvcLibrary.Controllers
                 //TempData["PASSWORD"] = values.PASSWORD.ToString();
                 //TempData["PHOTO"] = values.PHOTO.ToString();
                 //TempData["SCHOOL"] = values.SCHOOL.ToString();
-                return RedirectToAction("Index","Panel");
+                if(values.ISADMIN != null && (bool)values.ISADMIN) return RedirectToAction("Index","Home");
+                return RedirectToAction("Index","Memeber");
             }
             return View();
         }
@@ -47,7 +48,7 @@ namespace MvcLibrary.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Register(TBLMEMBERS p)
+        public ActionResult Register(TBLMEMBER p)
         {
             return View();
         }

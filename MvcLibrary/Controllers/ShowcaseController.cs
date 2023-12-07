@@ -16,15 +16,15 @@ namespace MvcLibrary.Controllers
         public ActionResult Index()
         {
             Class1 cs = new Class1();
-            cs.Deger1 = db.TBLBOOK.ToList();
-            cs.Deger2 = db.TBLABOUT.ToList();
+            cs.Deger1 = db.TBLBOOKs.ToList();
+            cs.Deger2 = db.TBLABOUTs.ToList();
             return View(cs);
         }
         [HttpPost]
         public ActionResult Index(TBLCONTACT p)
         {
            
-            db.TBLCONTACT.Add(p);
+            db.TBLCONTACTs.Add(p);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

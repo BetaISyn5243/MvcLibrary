@@ -5,8 +5,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace MvcLibrary.Controllers
 {
+    [RouteArea("Panel")]
+    [RoutePrefix("Panel")]
     public class MessageController : Controller
     {
         DBLIBRARYEntities1 db = new DBLIBRARYEntities1();
@@ -26,7 +29,7 @@ namespace MvcLibrary.Controllers
         // GET: Message
   
         [HttpPost]
-        public ActionResult Send(TBLMESSAGES p)
+        public ActionResult Send(TBLMESSAGE p)
         {
             p.SENDER = Session["Mail"].ToString();
             p.DATE = DateTime.Now;

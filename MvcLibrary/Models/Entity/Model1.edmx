@@ -5,16 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DBLIBRARYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="TBLABOUT">
           <Key>
             <PropertyRef Name="ID" />
@@ -106,6 +96,7 @@
           <Property Name="PHOTO" Type="varchar" MaxLength="250" />
           <Property Name="PHONE" Type="varchar" MaxLength="20" />
           <Property Name="SCHOOL" Type="varchar" MaxLength="100" />
+          <Property Name="ISADMIN" Type="bit" />
         </EntityType>
         <EntityType Name="TBLMESSAGES">
           <Key>
@@ -221,7 +212,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DBLIBRARYModelStoreContainer">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLABOUT" EntityType="Self.TBLABOUT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLACTION" EntityType="Self.TBLACTION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLANNOUNCEMENTS" EntityType="Self.TBLANNOUNCEMENTS" Schema="dbo" store:Type="Tables" />
@@ -267,16 +257,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBLIBRARYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="TBLABOUT">
           <Key>
             <PropertyRef Name="ID" />
@@ -296,11 +276,11 @@
           <Property Name="RETURNDATE" Type="DateTime" Precision="0" />
           <Property Name="ISCOMPLATED" Type="Boolean" />
           <NavigationProperty Name="TBLSTAFF" Relationship="Self.FK_TBLACTION_TBLSTAFF" FromRole="TBLACTION" ToRole="TBLSTAFF" />
-          <NavigationProperty Name="TBLPENALTY" Relationship="Self.FK_TBLCEZALAR_TBLHAREKET" FromRole="TBLACTION" ToRole="TBLPENALTY" />
+          <NavigationProperty Name="TBLPENALTies" Relationship="Self.FK_TBLCEZALAR_TBLHAREKET" FromRole="TBLACTION" ToRole="TBLPENALTY" />
           <NavigationProperty Name="TBLBOOK" Relationship="Self.FK_TBLHAREKET_TBLKITAP" FromRole="TBLACTION" ToRole="TBLBOOK" />
-          <NavigationProperty Name="TBLMEMBERS" Relationship="Self.FK_TBLHAREKET_TBLUYELER" FromRole="TBLACTION" ToRole="TBLMEMBERS" />
+          <NavigationProperty Name="TBLMEMBER" Relationship="Self.FK_TBLHAREKET_TBLUYELER" FromRole="TBLACTION" ToRole="TBLMEMBERS" />
         </EntityType>
-        <EntityType Name="TBLANNOUNCEMENTS">
+        <EntityType Name="TBLANNOUNCEMENT">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -317,7 +297,7 @@
           <Property Name="NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="SURNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="DETAIL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TBLBOOK" Relationship="Self.FK_TBLKITAP_TBLYAZAR" FromRole="TBLAUTHOR" ToRole="TBLBOOK" />
+          <NavigationProperty Name="TBLBOOKs" Relationship="Self.FK_TBLKITAP_TBLYAZAR" FromRole="TBLAUTHOR" ToRole="TBLBOOK" />
         </EntityType>
         <EntityType Name="TBLBANK">
           <Key>
@@ -341,7 +321,7 @@
           <Property Name="STATUS" Type="Boolean" />
           <Property Name="IMAGE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="ISDELETED" Type="Boolean" />
-          <NavigationProperty Name="TBLACTION" Relationship="Self.FK_TBLHAREKET_TBLKITAP" FromRole="TBLBOOK" ToRole="TBLACTION" />
+          <NavigationProperty Name="TBLACTIONs" Relationship="Self.FK_TBLHAREKET_TBLKITAP" FromRole="TBLBOOK" ToRole="TBLACTION" />
           <NavigationProperty Name="TBLAUTHOR" Relationship="Self.FK_TBLKITAP_TBLYAZAR" FromRole="TBLBOOK" ToRole="TBLAUTHOR" />
           <NavigationProperty Name="TBLCATEGORY" Relationship="Self.FK_TBLKITAP_TBLKATEGORI" FromRole="TBLBOOK" ToRole="TBLCATEGORY" />
         </EntityType>
@@ -352,7 +332,7 @@
           <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="ISDELETED" Type="Boolean" />
-          <NavigationProperty Name="TBLBOOK" Relationship="Self.FK_TBLKITAP_TBLKATEGORI" FromRole="TBLCATEGORY" ToRole="TBLBOOK" />
+          <NavigationProperty Name="TBLBOOKs" Relationship="Self.FK_TBLKITAP_TBLKATEGORI" FromRole="TBLCATEGORY" ToRole="TBLBOOK" />
         </EntityType>
         <EntityType Name="TBLCONTACT">
           <Key>
@@ -364,7 +344,7 @@
           <Property Name="TOPIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MESSAGE" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="TBLMEMBERS">
+        <EntityType Name="TBLMEMBER">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -377,10 +357,11 @@
           <Property Name="PHOTO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="SCHOOL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TBLACTION" Relationship="Self.FK_TBLHAREKET_TBLUYELER" FromRole="TBLMEMBERS" ToRole="TBLACTION" />
-          <NavigationProperty Name="TBLPENALTY" Relationship="Self.FK_TBLCEZALAR_TBLUYELER" FromRole="TBLMEMBERS" ToRole="TBLPENALTY" />
+          <NavigationProperty Name="TBLACTIONs" Relationship="Self.FK_TBLHAREKET_TBLUYELER" FromRole="TBLMEMBERS" ToRole="TBLACTION" />
+          <NavigationProperty Name="TBLPENALTies" Relationship="Self.FK_TBLCEZALAR_TBLUYELER" FromRole="TBLMEMBERS" ToRole="TBLPENALTY" />
+          <Property Name="ISADMIN" Type="Boolean" />
         </EntityType>
-        <EntityType Name="TBLMESSAGES">
+        <EntityType Name="TBLMESSAGE">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -402,7 +383,7 @@
           <Property Name="ENDDATE" Type="DateTime" Precision="0" />
           <Property Name="MONEY" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="TBLACTION" Relationship="Self.FK_TBLCEZALAR_TBLHAREKET" FromRole="TBLPENALTY" ToRole="TBLACTION" />
-          <NavigationProperty Name="TBLMEMBERS" Relationship="Self.FK_TBLCEZALAR_TBLUYELER" FromRole="TBLPENALTY" ToRole="TBLMEMBERS" />
+          <NavigationProperty Name="TBLMEMBER" Relationship="Self.FK_TBLCEZALAR_TBLUYELER" FromRole="TBLPENALTY" ToRole="TBLMEMBERS" />
         </EntityType>
         <EntityType Name="TBLSTAFF">
           <Key>
@@ -410,7 +391,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="STAFF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TBLACTION" Relationship="Self.FK_TBLACTION_TBLSTAFF" FromRole="TBLSTAFF" ToRole="TBLACTION" />
+          <NavigationProperty Name="TBLACTIONs" Relationship="Self.FK_TBLACTION_TBLSTAFF" FromRole="TBLSTAFF" ToRole="TBLACTION" />
         </EntityType>
         <Association Name="FK_TBLACTION_TBLSTAFF">
           <End Role="TBLSTAFF" Type="Self.TBLSTAFF" Multiplicity="0..1" />
@@ -449,7 +430,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBLHAREKET_TBLUYELER">
-          <End Role="TBLMEMBERS" Type="Self.TBLMEMBERS" Multiplicity="0..1" />
+          <End Role="TBLMEMBERS" Type="Self.TBLMEMBER" Multiplicity="0..1" />
           <End Role="TBLACTION" Type="Self.TBLACTION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBLMEMBERS">
@@ -485,7 +466,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TBLCEZALAR_TBLUYELER">
-          <End Role="TBLMEMBERS" Type="Self.TBLMEMBERS" Multiplicity="0..1" />
+          <End Role="TBLMEMBERS" Type="Self.TBLMEMBER" Multiplicity="0..1" />
           <End Role="TBLPENALTY" Type="Self.TBLPENALTY" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TBLMEMBERS">
@@ -497,46 +478,45 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DBLIBRARYEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="TBLABOUT" EntityType="Self.TBLABOUT" />
-          <EntitySet Name="TBLACTION" EntityType="Self.TBLACTION" />
-          <EntitySet Name="TBLANNOUNCEMENTS" EntityType="Self.TBLANNOUNCEMENTS" />
-          <EntitySet Name="TBLAUTHOR" EntityType="Self.TBLAUTHOR" />
-          <EntitySet Name="TBLBANK" EntityType="Self.TBLBANK" />
-          <EntitySet Name="TBLBOOK" EntityType="Self.TBLBOOK" />
-          <EntitySet Name="TBLCATEGORY" EntityType="Self.TBLCATEGORY" />
-          <EntitySet Name="TBLCONTACT" EntityType="Self.TBLCONTACT" />
-          <EntitySet Name="TBLMEMBERS" EntityType="Self.TBLMEMBERS" />
-          <EntitySet Name="TBLMESSAGES" EntityType="Self.TBLMESSAGES" />
-          <EntitySet Name="TBLPENALTY" EntityType="Self.TBLPENALTY" />
-          <EntitySet Name="TBLSTAFF" EntityType="Self.TBLSTAFF" />
+          <EntitySet Name="TBLABOUTs" EntityType="Self.TBLABOUT" />
+          <EntitySet Name="TBLACTIONs" EntityType="Self.TBLACTION" />
+          <EntitySet Name="TBLANNOUNCEMENTS" EntityType="Self.TBLANNOUNCEMENT" />
+          <EntitySet Name="TBLAUTHORs" EntityType="Self.TBLAUTHOR" />
+          <EntitySet Name="TBLBANKs" EntityType="Self.TBLBANK" />
+          <EntitySet Name="TBLBOOKs" EntityType="Self.TBLBOOK" />
+          <EntitySet Name="TBLCATEGORies" EntityType="Self.TBLCATEGORY" />
+          <EntitySet Name="TBLCONTACTs" EntityType="Self.TBLCONTACT" />
+          <EntitySet Name="TBLMEMBERS" EntityType="Self.TBLMEMBER" />
+          <EntitySet Name="TBLMESSAGES" EntityType="Self.TBLMESSAGE" />
+          <EntitySet Name="TBLPENALTies" EntityType="Self.TBLPENALTY" />
+          <EntitySet Name="TBLSTAFFs" EntityType="Self.TBLSTAFF" />
           <AssociationSet Name="FK_TBLACTION_TBLSTAFF" Association="Self.FK_TBLACTION_TBLSTAFF">
-            <End Role="TBLSTAFF" EntitySet="TBLSTAFF" />
-            <End Role="TBLACTION" EntitySet="TBLACTION" />
+            <End Role="TBLSTAFF" EntitySet="TBLSTAFFs" />
+            <End Role="TBLACTION" EntitySet="TBLACTIONs" />
           </AssociationSet>
           <AssociationSet Name="FK_TBLCEZALAR_TBLHAREKET" Association="Self.FK_TBLCEZALAR_TBLHAREKET">
-            <End Role="TBLACTION" EntitySet="TBLACTION" />
-            <End Role="TBLPENALTY" EntitySet="TBLPENALTY" />
+            <End Role="TBLACTION" EntitySet="TBLACTIONs" />
+            <End Role="TBLPENALTY" EntitySet="TBLPENALTies" />
           </AssociationSet>
           <AssociationSet Name="FK_TBLHAREKET_TBLKITAP" Association="Self.FK_TBLHAREKET_TBLKITAP">
-            <End Role="TBLBOOK" EntitySet="TBLBOOK" />
-            <End Role="TBLACTION" EntitySet="TBLACTION" />
+            <End Role="TBLBOOK" EntitySet="TBLBOOKs" />
+            <End Role="TBLACTION" EntitySet="TBLACTIONs" />
           </AssociationSet>
           <AssociationSet Name="FK_TBLHAREKET_TBLUYELER" Association="Self.FK_TBLHAREKET_TBLUYELER">
             <End Role="TBLMEMBERS" EntitySet="TBLMEMBERS" />
-            <End Role="TBLACTION" EntitySet="TBLACTION" />
+            <End Role="TBLACTION" EntitySet="TBLACTIONs" />
           </AssociationSet>
           <AssociationSet Name="FK_TBLKITAP_TBLYAZAR" Association="Self.FK_TBLKITAP_TBLYAZAR">
-            <End Role="TBLAUTHOR" EntitySet="TBLAUTHOR" />
-            <End Role="TBLBOOK" EntitySet="TBLBOOK" />
+            <End Role="TBLAUTHOR" EntitySet="TBLAUTHORs" />
+            <End Role="TBLBOOK" EntitySet="TBLBOOKs" />
           </AssociationSet>
           <AssociationSet Name="FK_TBLKITAP_TBLKATEGORI" Association="Self.FK_TBLKITAP_TBLKATEGORI">
-            <End Role="TBLCATEGORY" EntitySet="TBLCATEGORY" />
-            <End Role="TBLBOOK" EntitySet="TBLBOOK" />
+            <End Role="TBLCATEGORY" EntitySet="TBLCATEGORies" />
+            <End Role="TBLBOOK" EntitySet="TBLBOOKs" />
           </AssociationSet>
           <AssociationSet Name="FK_TBLCEZALAR_TBLUYELER" Association="Self.FK_TBLCEZALAR_TBLUYELER">
             <End Role="TBLMEMBERS" EntitySet="TBLMEMBERS" />
-            <End Role="TBLPENALTY" EntitySet="TBLPENALTY" />
+            <End Role="TBLPENALTY" EntitySet="TBLPENALTies" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -545,18 +525,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DBLIBRARYModelStoreContainer" CdmEntityContainer="DBLIBRARYEntities1">
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DBLIBRARYModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TBLABOUT">
+          <EntitySetMapping Name="TBLABOUTs">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLABOUT">
               <MappingFragment StoreEntitySet="TBLABOUT">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -564,7 +533,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TBLACTION">
+          <EntitySetMapping Name="TBLACTIONs">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLACTION">
               <MappingFragment StoreEntitySet="TBLACTION">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -578,7 +547,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TBLANNOUNCEMENTS">
-            <EntityTypeMapping TypeName="DBLIBRARYModel.TBLANNOUNCEMENTS">
+            <EntityTypeMapping TypeName="DBLIBRARYModel.TBLANNOUNCEMENT">
               <MappingFragment StoreEntitySet="TBLANNOUNCEMENTS">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
@@ -587,7 +556,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TBLAUTHOR">
+          <EntitySetMapping Name="TBLAUTHORs">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLAUTHOR">
               <MappingFragment StoreEntitySet="TBLAUTHOR">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -597,7 +566,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TBLBANK">
+          <EntitySetMapping Name="TBLBANKs">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLBANK">
               <MappingFragment StoreEntitySet="TBLBANK">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -606,7 +575,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TBLBOOK">
+          <EntitySetMapping Name="TBLBOOKs">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLBOOK">
               <MappingFragment StoreEntitySet="TBLBOOK">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -622,7 +591,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TBLCATEGORY">
+          <EntitySetMapping Name="TBLCATEGORies">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLCATEGORY">
               <MappingFragment StoreEntitySet="TBLCATEGORY">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -631,7 +600,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TBLCONTACT">
+          <EntitySetMapping Name="TBLCONTACTs">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLCONTACT">
               <MappingFragment StoreEntitySet="TBLCONTACT">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -643,8 +612,9 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TBLMEMBERS">
-            <EntityTypeMapping TypeName="DBLIBRARYModel.TBLMEMBERS">
+            <EntityTypeMapping TypeName="DBLIBRARYModel.TBLMEMBER">
               <MappingFragment StoreEntitySet="TBLMEMBERS">
+                <ScalarProperty Name="ISADMIN" ColumnName="ISADMIN" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
@@ -658,7 +628,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TBLMESSAGES">
-            <EntityTypeMapping TypeName="DBLIBRARYModel.TBLMESSAGES">
+            <EntityTypeMapping TypeName="DBLIBRARYModel.TBLMESSAGE">
               <MappingFragment StoreEntitySet="TBLMESSAGES">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="SENDER" ColumnName="SENDER" />
@@ -669,7 +639,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TBLPENALTY">
+          <EntitySetMapping Name="TBLPENALTies">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLPENALTY">
               <MappingFragment StoreEntitySet="TBLPENALTY">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -681,7 +651,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TBLSTAFF">
+          <EntitySetMapping Name="TBLSTAFFs">
             <EntityTypeMapping TypeName="DBLIBRARYModel.TBLSTAFF">
               <MappingFragment StoreEntitySet="TBLSTAFF">
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -703,7 +673,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

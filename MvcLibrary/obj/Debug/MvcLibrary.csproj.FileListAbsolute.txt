@@ -180,3 +180,9 @@ C:\Users\Nakre\Desktop\MvcLibrary\MvcLibrary\obj\Debug\MvcLibrary.csproj.Assembl
 C:\Users\Nakre\Desktop\MvcLibrary\MvcLibrary\obj\Debug\MvcLibrary.csproj.CoreCompileInputs.cache
 C:\Users\Nakre\Desktop\MvcLibrary\MvcLibrary\obj\Debug\MvcLibrary.dll
 C:\Users\Nakre\Desktop\MvcLibrary\MvcLibrary\obj\Debug\MvcLibrary.pdb
+C:\Users\gullu\OneDrive\Desktop\MvcLibrary\MvcLibrary\bin\System.Net.Http.Formatting.dll
+C:\Users\gullu\OneDrive\Desktop\MvcLibrary\MvcLibrary\bin\System.Web.Http.dll
+C:\Users\gullu\OneDrive\Desktop\MvcLibrary\MvcLibrary\bin\System.Web.Http.WebHost.dll
+C:\Users\gullu\OneDrive\Desktop\MvcLibrary\MvcLibrary\bin\System.Net.Http.Formatting.xml
+C:\Users\gullu\OneDrive\Desktop\MvcLibrary\MvcLibrary\bin\System.Web.Http.xml
+C:\Users\gullu\OneDrive\Desktop\MvcLibrary\MvcLibrary\bin\System.Web.Http.WebHost.xml
