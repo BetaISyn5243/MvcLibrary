@@ -5,31 +5,30 @@
 }
 
 
-@using (Html.BeginForm("Borrow", "Admin/Borrow", FormMethod.Post, new { @class = "needs-validation", @novalidate = "novalidate" }))
-{
+<form class="form-group" method="post">
     <div></div>
 
     <div class="container-fluid p-3">
         <div class="row" style=" margin-top: 15px">
             <div class="col-4 p-2">
-                <label>Kullanıcı ID</label>
+                <label>Member ID</label>
                 @Html.DropDownListFor(b => b.TBLMEMBER.ID, (List<SelectListItem>)ViewBag.memberList, new { @class = "form-control" })
             </div>
             <div class="col-4 p-2">
-                <label>Kitap ID</label>
+                <label>Book ID</label>
                 @*@Html.TextBoxFor(b => b.BOOK, new { @class = "form-control" })*@
                 @Html.DropDownListFor(b => b.TBLBOOK.ID, (List<SelectListItem>)ViewBag.bookList, new { @class = "form-control" })
 
             </div>
             <div class="col-4 p-2">
-                <label>Görevli ID</label>
+                <label>Staff ID</label>
                 @*@Html.TextBoxFor(b => b.STAFF, new { @class = "form-control" })*@
                 @Html.DropDownListFor(b => b.TBLSTAFF.ID, (List<SelectListItem>)ViewBag.staffList, new { @class = "form-control" })
 
             </div>
 
             <div class="col-6 p-2">
-                <label>Ödünç Alınma Tarihi </label>
+                <label>Borrow Date </label>
                 @Html.TextBoxFor(b => b.BORROWDATE, new { @class = "form-control", @Value = DateTime.Now.ToShortDateString() })
             </div>
 
@@ -40,7 +39,6 @@
 
 
     <div style="margin-top:15px">
-        <button class="btn btn-info" id="add-Button">Ödünç Al</button>
+        <button class="btn btn-info" id="add-Button">Borrow Book</button>
     </div>
-}
-
+</form>
